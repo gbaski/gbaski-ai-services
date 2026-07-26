@@ -149,8 +149,7 @@ export type HeroTeamLead = TeamMember & {
 
 export function getHeroTeamLeads(): HeroTeamLead[] {
   return CORE_TEAM_LEADS.map((member) => ({
-    ...member,
-    ...HERO_TEAM_LEAD_PRESENTATION[member.slug],
+    ...member, ...HERO_TEAM_LEAD_PRESENTATION[member.slug],
   }));
 }
 
@@ -204,7 +203,7 @@ export function memberPhotoAlt(
     case 'hero':
       return `Portrait photo of ${member.name}, ${role}`;
     case 'profile':
-      return `${member.name}, ${role} — professional headshot`;
+      return `${member.name}, ${role}, professional headshot`;
     case 'avatar':
       return `${member.name}, ${SITE_NAME}`;
     default:

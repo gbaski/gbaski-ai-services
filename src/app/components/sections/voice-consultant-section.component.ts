@@ -91,7 +91,7 @@ export class VoiceConsultantSectionComponent implements OnDestroy {
 
     switch (this.voice.uiState()) {
       case 'listening':
-        return 'Speak now — your consultant is listening.';
+        return 'Speak now, your consultant is listening.';
       case 'speaking':
         return 'Your consultant is speaking.';
       case 'thinking':

@@ -1,34 +1,44 @@
-    <footer class="theme-section theme-bg-elevated px-6 py-12 md:px-10 lg:px-14">
-      <div class="mx-auto flex max-w-[1400px] flex-col gap-8 md:flex-row md:items-center md:justify-between">
-        <div class="flex items-center gap-3">
+<footer class="site-footer theme-section theme-bg-elevated px-6 py-14 md:px-10 lg:px-14">
+  <div class="mx-auto max-w-[1400px]">
+    <div class="site-footer__grid">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
           <span class="footer-mark" aria-hidden="true"></span>
           <span class="font-heading theme-text text-lg font-semibold">Gbaski AI Services</span>
         </div>
-
-        <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
-          @for (link of links; track link.href) {
-            @if (link.route) {
-              <a
-                [routerLink]="link.href"
-                class="font-mono-label theme-text-secondary footer-link text-[11px] tracking-[0.1em] no-underline"
-              >
-                {{ link.label }}
-              </a>
-            } @else {
-              <a
-                [href]="link.href"
-                class="font-mono-label theme-text-secondary footer-link text-[11px] tracking-[0.1em] no-underline"
-                (click)="scrollTo($event, link.href)"
-              >
-                {{ link.label }}
-              </a>
-            }
-          }
-        </nav>
-
-        <p class="font-mono-label theme-text-secondary text-[11px] tracking-[0.08em]">
-          © {{ year }} Gbaski AI Services
+        <p class="theme-text-muted text-sm leading-relaxed max-w-sm">
+          AI workflow automation, agents, CRM systems, WhatsApp AI, and integrations, shipped for production.
+          Nigeria · UK · US · remote worldwide.
         </p>
+        <div class="site-footer__contacts mt-5">
+          <a [href]="'mailto:' + email">{{ email }}</a>
+          <a [href]="whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a [href]="calendly" target="_blank" rel="noopener noreferrer">Book a call</a>
+        </div>
       </div>
-    </footer>
-  
+
+      <nav aria-label="Footer services">
+        <p class="site-footer__heading font-mono-label">Services</p>
+        @for (link of nav.services; track link.path) {
+          <a [routerLink]="link.path">{{ link.label }}</a>
+        }
+      </nav>
+
+      <nav aria-label="Footer company">
+        <p class="site-footer__heading font-mono-label">Company</p>
+        @for (link of nav.company; track link.path) {
+          <a [routerLink]="link.path">{{ link.label }}</a>
+        }
+      </nav>
+
+      <nav aria-label="Footer locations">
+        <p class="site-footer__heading font-mono-label">Locations</p>
+        @for (link of nav.locations; track link.path) {
+          <a [routerLink]="link.path">{{ link.label }}</a>
+        }
+      </nav>
+    </div>
+
+    <p class="site-footer__legal font-mono-label">© {{ year }} Gbaski AI Services</p>
+  </div>
+</footer>

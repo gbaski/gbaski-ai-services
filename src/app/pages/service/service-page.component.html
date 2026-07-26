@@ -1,0 +1,126 @@
+@if (page; as p) {
+  <app-header />
+  <main class="theme-bg theme-text service-page">
+    <div class="service-page__wrap px-6 py-10 md:px-10 md:py-14 lg:px-14">
+      <div class="mx-auto max-w-[1400px]">
+        <app-breadcrumbs
+          [items]="[
+            { label: 'Home', path: '/' },
+            { label: 'Services', path: '/services' },
+            { label: p.name }
+          ]"
+        />
+
+        <header class="service-hero mb-14 max-w-3xl">
+          <p class="section-eyebrow mb-4">{{ p.targetKeyword }}</p>
+          <h1 class="service-hero__h1 font-heading">{{ p.h1 }}</h1>
+          <p class="service-hero__lead theme-text-muted mt-5">{{ p.lead }}</p>
+          <div class="service-hero__actions mt-8">
+            <button type="button" class="btn-pill btn-pill--primary" (click)="openDiscovery()">
+              Book a discovery call
+            </button>
+            <a routerLink="/case-studies" class="btn-pill btn-pill--outline">See case studies</a>
+          </div>
+        </header>
+
+        <div class="service-grid">
+          <section>
+            <h2 class="section-heading">{{ p.problem.heading }}</h2>
+            <p class="section-body mt-4">{{ p.problem.body }}</p>
+            @if (p.problem.bullets?.length) {
+              <ul class="service-list mt-5">
+                @for (item of p.problem.bullets; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            }
+          </section>
+
+          <section>
+            <h2 class="section-heading">{{ p.whatWeBuild.heading }}</h2>
+            <p class="section-body mt-4">{{ p.whatWeBuild.body }}</p>
+            @if (p.whatWeBuild.bullets?.length) {
+              <ul class="service-list mt-5">
+                @for (item of p.whatWeBuild.bullets; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            }
+          </section>
+
+          <section>
+            <h2 class="section-heading">{{ p.whoFor.heading }}</h2>
+            <p class="section-body mt-4">{{ p.whoFor.body }}</p>
+            @if (p.whoFor.bullets?.length) {
+              <ul class="service-list mt-5">
+                @for (item of p.whoFor.bullets; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            }
+          </section>
+
+          <section>
+            <h2 class="section-heading">How we deliver</h2>
+            <ol class="service-steps mt-6">
+              @for (step of p.process; track step.name; let i = $index) {
+                <li>
+                  <span class="service-steps__index font-mono-label">{{ i + 1 }}</span>
+                  <div>
+                    <h3 class="font-heading">{{ step.name }}</h3>
+                    <p class="theme-text-muted">{{ step.text }}</p>
+                  </div>
+                </li>
+              }
+            </ol>
+          </section>
+        </div>
+
+        @if (relatedProjects().length) {
+          <section class="mt-16">
+            <h2 class="section-heading mb-6">Related case studies</h2>
+            <div class="case-links">
+              @for (project of relatedProjects(); track project!.id) {
+                <a class="case-link theme-card" [routerLink]="['/case-studies', project!.id]">
+                  <span class="font-mono-label">{{ project!.clientName }}</span>
+                  <span class="font-heading">{{ project!.title }}</span>
+                  <span class="theme-text-muted">{{ project!.outcomeSummary }}</span>
+                </a>
+              }
+            </div>
+          </section>
+        }
+
+        <section class="mt-16" aria-labelledby="service-faq-heading">
+          <h2 id="service-faq-heading" class="section-heading mb-6">FAQ</h2>
+          <div class="service-faqs">
+            @for (faq of p.faqs; track faq.question) {
+              <details class="service-faq theme-card">
+                <summary class="font-heading">{{ faq.question }}</summary>
+                <p class="theme-text-muted">{{ faq.answer }}</p>
+              </details>
+            }
+          </div>
+        </section>
+
+        <div class="mt-16">
+          <app-page-cta (book)="openDiscovery()" />
+        </div>
+
+        @if (relatedServiceLinks().length) {
+          <div class="mt-16">
+            <app-related-pages heading="Related services" [links]="relatedServiceLinks()" />
+          </div>
+        }
+        @if (relatedIndustryLinks().length) {
+          <div class="mt-12">
+            <app-related-pages eyebrow="Industries" heading="Where this shows up" [links]="relatedIndustryLinks()" />
+          </div>
+        }
+      </div>
+    </div>
+  </main>
+  <app-footer />
+  <app-sticky-cta (book)="openDiscovery()" />
+  <app-discovery-call-dialog [open]="discoveryOpen()" (closed)="discoveryOpen.set(false)" />
+}

@@ -8,14 +8,18 @@ const root = path.resolve(__dirname, '..');
 const SITE_URL = 'https://ai-services.com.ng';
 const GA_MEASUREMENT_ID = 'G-9M315LZ644';
 const SITE_NAME = 'Gbaski AI Services';
-const TITLE = 'AI Services in Nigeria | Automation, Chatbots & Agents | Gbaski AI Services';
+const TITLE = 'AI Workflow Automation, Agents & CRM Integrations | Gbaski AI Services';
 const DESC =
-  'Gbaski AI Services delivers AI services in Nigeria — automation, chatbots, voice agents, and custom integrations built for production. Talk to our AI consultant and see our projects.';
+  'We design and ship AI workflow automation, agents, chatbots, and CRM systems on n8n, Make, Zapier, HubSpot, GoHighLevel, and WhatsApp. Book a discovery call, Nigeria, UK, US, and remote.';
 const OG_DESC = DESC;
 const KEYWORDS =
-  'AI services in Nigeria, AI services Nigeria, AI automation Nigeria, chatbot development Nigeria, AI agents Nigeria, workflow automation, WhatsApp chatbot, n8n automation';
+  'AI workflow automation, AI automation agency, n8n developer, CRM automation, HubSpot automation, GoHighLevel automation, WhatsApp AI chatbot, AI agents, AI automation Nigeria';
 const FOUNDING_DATE = '2024';
-const SAME_AS = ['https://gbaski.app', 'https://wa.me/2348034309999'];
+const SAME_AS = [
+  'https://gbaski.app',
+  'https://wa.me/2348034309999',
+  'https://www.linkedin.com/company/gbaski',
+];
 const SERVICE_CATEGORY = 'Artificial Intelligence Services';
 const OG = `${SITE_URL}/og-image.png`;
 
@@ -39,6 +43,9 @@ const areaServed = [
     },
   },
   { '@type': 'Country', name: 'Nigeria' },
+  { '@type': 'Country', name: 'United Kingdom' },
+  { '@type': 'Country', name: 'United States' },
+  { '@type': 'Place', name: 'Worldwide' },
 ];
 
 const services = [
@@ -88,7 +95,7 @@ const platforms = [
 const faqs = [
   [
     'Do you provide AI services in Nigeria?',
-    'Yes. Gbaski AI Services provides AI services in Nigeria for businesses nationwide — from Lagos and Abuja to Port Harcourt, Ibadan, and beyond. We deliver automation, chatbots, voice assistants, and custom AI agents built for production.',
+    'Yes. Gbaski AI Services provides AI services in Nigeria for businesses nationwide, from Lagos and Abuja to Port Harcourt, Ibadan, and beyond. We deliver automation, chatbots, voice assistants, and custom AI agents built for production.',
   ],
   [
     'What AI services do you offer?',
@@ -134,11 +141,16 @@ const faqs = [
 
 const knowsAbout = [
   'Artificial Intelligence',
-  'AI services in Nigeria',
-  'AI automation',
-  'Chatbot integration',
+  'AI workflow automation',
+  'AI automation agency',
+  'n8n developer',
+  'CRM automation',
+  'HubSpot automation',
+  'GoHighLevel automation',
+  'WhatsApp AI chatbot',
   'Custom AI agents',
   'Voice AI',
+  'RAG development',
   'Business process automation',
   'Workflow integrations',
   ...platforms.map((p) => p[0]),
@@ -162,7 +174,7 @@ const jsonLdBlocks = [
         email: 'hello@gbaski.app',
         telephone: '+2348034309999',
         contactType: 'customer service',
-        areaServed: 'NG',
+        areaServed: ['NG', 'GB', 'US', 'Worldwide'],
         availableLanguage: ['English'],
         url: 'https://wa.me/2348034309999',
       },

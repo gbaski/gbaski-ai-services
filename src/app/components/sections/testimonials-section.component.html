@@ -1,33 +1,35 @@
-    <section id="testimonials" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14">
-      <div class="mx-auto max-w-[1400px]">
-        <p appScrollReveal class="section-eyebrow mb-4">Testimonials</p>
-        <h2
-          appScrollReveal
-          [appScrollRevealDelay]="80"
-          class="section-heading mb-16 max-w-2xl"
-        >
-          Voices From The Teams Powering Modern AI Infrastructure.
-        </h2>
+<section id="testimonials" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14">
+  <div class="mx-auto max-w-[1400px]">
+    <p appScrollReveal class="section-eyebrow mb-4">Social proof</p>
+    <h2
+      appScrollReveal
+      [appScrollRevealDelay]="80"
+      class="section-heading mb-6 max-w-2xl"
+    >
+      What partners say about production delivery
+    </h2>
+    <p appScrollReveal [appScrollRevealDelay]="100" class="section-body mb-14 max-w-2xl">
+      We prioritise systems that survive real users, real auth, and real message volume, not prototype theatre.
+    </p>
 
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          @for (item of testimonials; track item.name; let i = $index) {
-            <blockquote
-              appScrollReveal
-              [appScrollRevealDelay]="i * 70"
-              class="testimonial-card theme-card rounded-2xl p-8"
-            >
-              <p class="theme-text-soft mb-6 text-[15px] leading-relaxed">
-                "{{ item.quote }}"
-              </p>
-              <footer>
-                <cite class="not-italic">
-                  <span class="theme-text block text-sm font-medium">{{ item.name }}</span>
-                  <span class="theme-text-secondary text-xs">{{ item.role }}</span>
-                </cite>
-              </footer>
-            </blockquote>
-          }
-        </div>
-      </div>
-    </section>
-  
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      @for (item of testimonials; track item.name; let i = $index) {
+        <blockquote
+          appScrollReveal
+          [appScrollRevealDelay]="i * 70"
+          class="testimonial-card theme-card rounded-2xl p-8"
+        >
+          <p class="theme-text-soft mb-6 text-[15px] leading-relaxed">
+            "{{ item.quote }}"
+          </p>
+          <footer>
+            <cite class="not-italic">
+              <span class="theme-text block text-sm font-medium">{{ item.name }}</span>
+              <span class="theme-text-secondary text-xs">{{ item.role }} · {{ item.company }}</span>
+            </cite>
+          </footer>
+        </blockquote>
+      }
+    </div>
+  </div>
+</section>

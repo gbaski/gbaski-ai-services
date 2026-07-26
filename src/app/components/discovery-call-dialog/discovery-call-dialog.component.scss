@@ -91,8 +91,7 @@
       text-transform: uppercase;
     }
 
-    .discovery-dialog__field input,
-    .discovery-dialog__field textarea {
+    .discovery-dialog__field input.discovery-dialog__field textarea {
       width: 100%;
       padding: 0.75rem 0.875rem;
       border: 1px solid var(--theme-border);
@@ -109,8 +108,7 @@
       min-height: 6.5rem;
     }
 
-    .discovery-dialog__field input:focus,
-    .discovery-dialog__field textarea:focus {
+    .discovery-dialog__field input:focus.discovery-dialog__field textarea:focus {
       outline: none;
       border-color: var(--theme-accent);
       box-shadow: 0 0 0 3px var(--theme-accent-muted);

@@ -24,7 +24,7 @@ export class LogoMarqueeRowComponent implements AfterViewInit, OnDestroy {
   readonly logos = input.required<MarqueeLogo[]>();
   readonly direction = input<'left' | 'right'>('right');
   readonly speed = input(0.65);
-  /** 0–1 offset into the loop for staggered row alignment */
+  /** 0-1 offset into the loop for staggered row alignment */
   readonly phase = input(0);
 
   private readonly viewport = viewChild<ElementRef<HTMLElement>>('viewport');

@@ -2,7 +2,9 @@
       <div class="project-card__header">
         <div>
           <p class="project-card__client font-mono-label">{{ project().clientName }}</p>
-          <h3 class="project-card__title font-heading">{{ project().title }}</h3>
+          <h3 class="project-card__title font-heading">
+            <a class="project-card__title-link" [routerLink]="['/case-studies', project().id]">{{ project().title }}</a>
+          </h3>
         </div>
         @if (project().automationTool) {
           <span class="project-card__tool font-mono-label">{{ project().automationTool }}</span>
@@ -22,6 +24,12 @@
               }
             </div>
 
+            <a
+              class="project-card__link"
+              [routerLink]="['/case-studies', project().id]"
+            >
+              Read case study
+            </a>
             <a
               class="project-card__link"
               [href]="project().productionUrl"
@@ -51,6 +59,12 @@
           }
         </div>
 
+        <a
+          class="project-card__link"
+          [routerLink]="['/case-studies', project().id]"
+        >
+          Read case study
+        </a>
         <a
           class="project-card__link"
           [href]="project().productionUrl"

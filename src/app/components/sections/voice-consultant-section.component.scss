@@ -163,8 +163,7 @@
   text-transform: uppercase;
 }
 
-.voice-widget__lead-card-intro,
-.voice-widget__confirmation {
+.voice-widget__lead-card-intro.voice-widget__confirmation {
   margin: 0;
   color: #5f6368;
   font-size: 0.8125rem;
@@ -216,8 +215,7 @@
   text-transform: uppercase;
 }
 
-.voice-widget__lead-form input,
-.voice-widget__lead-form textarea {
+.voice-widget__lead-form input.voice-widget__lead-form textarea {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 0.7rem;
@@ -234,8 +232,7 @@
   min-height: 4.5rem;
 }
 
-.voice-widget__lead-form input:focus,
-.voice-widget__lead-form textarea:focus {
+.voice-widget__lead-form input:focus.voice-widget__lead-form textarea:focus {
   outline: none;
   border-color: var(--theme-accent);
   box-shadow: 0 0 0 3px rgba(243, 211, 2, 0.18);
@@ -247,8 +244,7 @@
   background: #ffffff;
 }
 
-.voice-widget__actions app-voice-consultant-callbar,
-.voice-widget > app-voice-consultant-callbar {
+.voice-widget__actions app-voice-consultant-callbar.voice-widget > app-voice-consultant-callbar {
   display: block;
   width: 100%;
 }

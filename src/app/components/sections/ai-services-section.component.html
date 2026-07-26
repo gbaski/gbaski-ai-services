@@ -1,19 +1,33 @@
 <section id="services" class="theme-section ai-services px-6 py-24 md:px-10 md:py-32 lg:px-14" aria-labelledby="services-heading">
   <div class="mx-auto max-w-[1400px]">
-    <div class="ai-services__layout">
-      <div class="ai-services__intro">
-        <p appScrollReveal class="section-eyebrow mb-4">AI Services in Nigeria</p>
-        <h2 id="services-heading" appScrollReveal [appScrollRevealDelay]="80" class="section-heading">
-          Intelligent AI capabilities for Nigerian businesses
-        </h2>
-        <p appScrollReveal [appScrollRevealDelay]="120" class="section-body mt-5">
-          We deliver AI services in Nigeria — automation, chatbots, voice agents, and custom integrations that connect to your tools, reduce manual work, and improve response times. Serving teams in {{ serviceAreas }}.
-        </p>
-      </div>
+    <div class="ai-services__intro max-w-3xl">
+      <p appScrollReveal class="section-eyebrow mb-4">What we build</p>
+      <h2 id="services-heading" appScrollReveal [appScrollRevealDelay]="80" class="section-heading">
+        AI automation services for operators who need systems that ship
+      </h2>
+      <p appScrollReveal [appScrollRevealDelay]="120" class="section-body mt-5">
+        Focused builds for teams that have outgrown manual CRM work, slow support queues, and fragile Zap sprawl.
+        Every engagement is scoped to a measurable workflow, not a demo that dies after the slide deck.
+      </p>
+    </div>
 
-      <div appScrollReveal [appScrollRevealDelay]="200" class="ai-services__visual" aria-label="AI service capabilities">
-        <app-services-column-marquee />
-      </div>
+    <div class="ai-services__grid mt-12">
+      @for (service of featured; track service.slug; let i = $index) {
+        <a
+          appScrollReveal
+          [appScrollRevealDelay]="80 + i * 40"
+          class="ai-services__card theme-card"
+          [routerLink]="['/services', service.slug]"
+        >
+          <span class="font-mono-label ai-services__keyword">{{ service.targetKeyword }}</span>
+          <span class="ai-services__name font-heading">{{ service.name }}</span>
+          <span class="theme-text-muted ai-services__lead">{{ service.lead }}</span>
+        </a>
+      }
+    </div>
+
+    <div class="mt-10">
+      <a routerLink="/services" class="btn-pill btn-pill--outline">View all services</a>
     </div>
   </div>
 </section>

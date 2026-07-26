@@ -11,6 +11,11 @@ import { TeamMembersSectionComponent } from '../../components/sections/team-memb
 import { ProjectsSectionComponent } from '../../components/sections/projects-section.component';
 import { IntegrationsSectionComponent } from '../../components/sections/integrations-section.component';
 import { FaqSectionComponent } from '../../components/sections/faq-section.component';
+import { TestimonialsSectionComponent } from '../../components/sections/testimonials-section.component';
+import { PricingSectionComponent } from '../../components/pricing-section/pricing-section.component';
+import { LeadMagnetComponent } from '../../components/lead-magnet/lead-magnet.component';
+import { StickyCtaComponent } from '../../components/sticky-cta/sticky-cta.component';
+import { PageCtaComponent } from '../../components/page-cta/page-cta.component';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +27,15 @@ import { FaqSectionComponent } from '../../components/sections/faq-section.compo
     AiServicesSectionComponent,
     VoiceConsultantSectionComponent,
     HowWeWorkSectionComponent,
+    TestimonialsSectionComponent,
     TeamMembersSectionComponent,
     ProjectsSectionComponent,
     IntegrationsSectionComponent,
+    PricingSectionComponent,
+    LeadMagnetComponent,
     FaqSectionComponent,
+    StickyCtaComponent,
+    PageCtaComponent,
   ],
   templateUrl: './home.component.html',
 })

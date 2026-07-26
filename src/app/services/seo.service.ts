@@ -36,7 +36,7 @@ export class SeoService {
   }): void {
     const url = options.path ? `${SITE_URL}${options.path}` : SITE_URL;
     const image = options.image ?? OG_IMAGE;
-    const imageAlt = options.imageAlt ?? `${SITE_NAME} — AI services in Nigeria: automation, chatbots, and agents`;
+    const imageAlt = options.imageAlt ?? `${SITE_NAME}, AI workflow automation, agents, and CRM integrations`;
 
     this.title.setTitle(options.title);
 

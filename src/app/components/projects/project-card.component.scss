@@ -33,6 +33,15 @@
       color: var(--theme-fg);
     }
 
+    .project-card__title-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .project-card__title-link:hover {
+      color: var(--theme-accent);
+    }
+
     .project-card__tool {
       flex-shrink: 0;
       padding: 0.35rem 0.6rem;

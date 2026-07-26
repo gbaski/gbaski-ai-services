@@ -15,6 +15,14 @@ export interface Project {
   clientName: string;
   automationTool?: 'n8n';
   automationFile?: string;
+  /** Short outcome line for cards and SEO snippets */
+  outcomeSummary?: string;
+  /** Measurable or qualitative metrics shown on case study pages */
+  metrics?: Array<{ label: string; value: string }>;
+  /** Services this case study should link to */
+  relatedServiceSlugs?: string[];
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export interface ProjectCategoryGroup {
@@ -61,6 +69,17 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         ],
         productionUrl: 'https://rented123.com',
         clientName: 'Rented123',
+        outcomeSummary:
+          'Authenticated users get rent, membership, and document answers in natural language via a secure AWS action gateway.',
+        metrics: [
+          { label: 'Delivery model', value: 'Serverless AWS' },
+          { label: 'Auth', value: 'Cognito + JWT federation' },
+          { label: 'Access', value: 'Protected AI actions only' },
+        ],
+        relatedServiceSlugs: ['ai-agents', 'api-integration', 'rag-development', 'ai-chatbots'],
+        metaTitle: 'Case Study: Rented123 AI Assistant & Action Gateway | Gbaski',
+        metaDescription:
+          'How Gbaski built a secure AI assistant for Rented123 with Golang, AWS Lambda, Cognito, and protected action endpoints for rent and membership insights.',
       },
       {
         id: 'tai-librechat',
@@ -74,6 +93,17 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         ],
         productionUrl: 'https://tai.tinglemore.ca',
         clientName: 'Tinglemore',
+        outcomeSummary:
+          'Internal ChatGPT-style workspace supporting content generation and Quill/SSGD publishing evaluation.',
+        metrics: [
+          { label: 'Platform', value: 'LibreChat (Tai)' },
+          { label: 'Use case', value: 'Content ops' },
+          { label: 'Result', value: 'Faster structured drafts' },
+        ],
+        relatedServiceSlugs: ['rag-development', 'ai-agents', 'ai-chatbots'],
+        metaTitle: 'Case Study: Tai Internal AI Platform (LibreChat) | Gbaski',
+        metaDescription:
+          'Deployment of Tai, an internal LibreChat AI platform, to support content generation and structured publishing workflows at Tinglemore.',
       },
     ],
   },
@@ -92,6 +122,17 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         clientName: 'Gbaski',
         automationTool: 'n8n',
         automationFile: '/assets/projects/Gbaski AI Chat Assistant.json',
+        outcomeSummary:
+          'n8n-powered chatbot helping organisers and participants with events, ticketing, and promotions.',
+        metrics: [
+          { label: 'Orchestration', value: 'n8n' },
+          { label: 'Domain', value: 'Events' },
+          { label: 'Channels', value: 'Chat assistant' },
+        ],
+        relatedServiceSlugs: ['n8n-developer', 'ai-chatbots', 'whatsapp-ai-chatbot'],
+        metaTitle: 'Case Study: Gbaski AI Chat Assistant | Gbaski AI Services',
+        metaDescription:
+          'n8n chatbot for Gbaski event organisers and participants covering features, ticketing, registrations, and promotions.',
       },
       {
         id: 'sisi-safe-calculator',
@@ -103,9 +144,32 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         clientName: 'Sisi Safe',
         automationTool: 'n8n',
         automationFile: '/assets/projects/Safe Sex Calculator.json',
+        outcomeSummary:
+          'Personalised fertility and cycle guidance delivered through an n8n-backed AI experience.',
+        metrics: [
+          { label: 'Orchestration', value: 'n8n' },
+          { label: 'Domain', value: 'Health guidance' },
+          { label: 'Interface', value: 'Conversational calculator' },
+        ],
+        relatedServiceSlugs: ['n8n-developer', 'ai-agents', 'ai-chatbots'],
+        metaTitle: 'Case Study: Sisi Safe AI Calculator | Gbaski AI Services',
+        metaDescription:
+          'How Gbaski shipped an n8n-powered AI calculator for personalised fertility and cycle guidance.',
       },
     ],
   },
 ];
 
 export const ALL_PROJECTS: Project[] = PROJECT_CATEGORY_GROUPS.flatMap((group) => group.projects);
+
+export function getProjectById(id: string): Project | undefined {
+  return ALL_PROJECTS.find((project) => project.id === id);
+}
+
+export const CASE_STUDIES_HUB = {
+  metaTitle: 'Case Studies | AI Automation & Agents | Gbaski AI Services',
+  metaDescription:
+    'Production case studies from Gbaski AI Services, secure AI assistants, internal AI platforms, and n8n workflow automation.',
+  h1: 'Case Studies',
+  lead: 'Selected builds shipped to production: authenticated assistants, internal AI platforms, and workflow automation.',
+};

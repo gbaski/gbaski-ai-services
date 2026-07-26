@@ -15,7 +15,7 @@
               class="hero-copy__eyebrow font-mono-label theme-text-secondary animate-fade-in uppercase tracking-[0.2em]"
               style="animation-delay: 80ms"
             >
-              AI Services
+              AI Automation Agency
             </p>
 
             <h1 class="hero-headline font-heading">
@@ -37,14 +37,14 @@
               class="hero-subhead font-heading theme-text-soft animate-fade-in max-w-xl text-lg font-medium leading-snug sm:text-xl"
               style="animation-delay: 520ms"
             >
-              Don't Just Take Our Word For It
+              Stop losing leads because your business cannot respond fast enough.
             </p>
 
             <p
               class="hero-lead theme-text-muted animate-fade-in max-w-xl text-[0.9375rem] leading-[1.75] sm:text-base"
               style="animation-delay: 560ms"
             >
-              Talk to our AI Solutions Consultant and experience the kind of AI systems we build for businesses in Nigeria.
+              Imagine having an AI-powered team member that never sleeps, answering customer questions, qualifying leads, following up automatically, and converting prospects while your team focuses on growing the business.
             </p>
 
             @if (!widgetUi.launcherVisible()) {
@@ -58,20 +58,6 @@
                 </span>
               </span>
             }
-
-            <div class="hero-secondary-actions animate-fade-in" style="animation-delay: 840ms">
-              <a
-                href="#projects"
-                class="hero-secondary-link hero-secondary-link--works"
-                (click)="scrollTo($event, '#projects')"
-              >
-                See our works
-                <svg lucideArrowRight [size]="14" [strokeWidth]="1.75" aria-hidden="true"></svg>
-              </a>
-              <button type="button" class="hero-secondary-link" (click)="openDiscoveryDialog()">
-                Book a discovery call
-              </button>
-            </div>
           </div>
 
           <!-- Right: team -->
@@ -201,10 +187,5 @@
           </div>
         </div>
       </div>
-
-      <app-discovery-call-dialog
-        [open]="discoveryDialogOpen()"
-        (closed)="closeDiscoveryDialog()"
-      />
     </section>
   

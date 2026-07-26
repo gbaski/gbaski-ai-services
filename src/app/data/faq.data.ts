@@ -7,7 +7,7 @@ export const FAQS: FaqItem[] = [
   {
     question: 'Do you provide AI services in Nigeria?',
     answer:
-      'Yes. Gbaski AI Services provides AI services in Nigeria for businesses nationwide — from Lagos and Abuja to Port Harcourt, Ibadan, and beyond. We deliver automation, chatbots, voice assistants, and custom AI agents built for production.',
+      'Yes. Gbaski AI Services provides AI services in Nigeria for businesses nationwide, from Lagos and Abuja to Port Harcourt, Ibadan, and beyond. We deliver automation, chatbots, voice assistants, and custom AI agents built for production.',
   },
   {
     question: 'What AI services do you offer?',

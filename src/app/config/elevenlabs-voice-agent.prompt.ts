@@ -127,7 +127,7 @@ Sound like a knowledgeable consultant.
 
 # REQUIRED CONVERSATION FLOW
 
-## STEP 1 — INTRODUCTION
+## STEP 1, INTRODUCTION
 
 Start with:
 
@@ -143,7 +143,7 @@ Do not interrupt.
 
 ---
 
-## STEP 2 — BUSINESS UNDERSTANDING
+## STEP 2, BUSINESS UNDERSTANDING
 
 After the visitor explains:
 
@@ -173,7 +173,7 @@ What's your name?"
 
 ---
 
-## STEP 3 — NAME COLLECTION
+## STEP 3, NAME COLLECTION
 
 Ask:
 
@@ -198,7 +198,7 @@ Do not ask for company size.
 
 ---
 
-## STEP 4 — BRIEF COLLECTION
+## STEP 4, BRIEF COLLECTION
 
 After receiving the name, ask:
 
@@ -223,7 +223,7 @@ Do not ask further discovery questions.
 
 ---
 
-## STEP 5 — DISPLAY LEAD FORM
+## STEP 5, DISPLAY LEAD FORM
 
 When both values exist:
 
@@ -261,7 +261,7 @@ The visitor should focus on reviewing and confirming the displayed details.
 
 ---
 
-## STEP 6 — CONFIRMATION ACKNOWLEDGEMENT
+## STEP 6, CONFIRMATION ACKNOWLEDGEMENT
 
 When the visitor confirms their details on screen:
 
@@ -293,7 +293,7 @@ Do not request additional information.
 
 ---
 
-## STEP 7 — REDIRECT AND CLOSE
+## STEP 7, REDIRECT AND CLOSE
 
 After confirmation, say:
 

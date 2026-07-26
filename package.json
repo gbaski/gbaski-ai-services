@@ -9,6 +9,7 @@
     "api:go": "go run ./backend/cmd/voice-api",
     "api:go:build": "go build ./backend/cmd/voice-api",
     "seo:index": "node scripts/generate-index-html.mjs",
+    "seo:routes": "node scripts/generate-prerender-routes.mjs",
     "build:prerender": "node scripts/generate-index-html.mjs && node scripts/generate-prerender-routes.mjs && ng build --configuration production",
     "build:spa": "node scripts/generate-index-html.mjs && ng build --prerender=false",
     "build": "npm run build:prerender",

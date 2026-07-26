@@ -1,35 +1,107 @@
-    <header class="site-header">
-      <div class="site-header__inner mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-4 sm:px-6 md:px-10 lg:px-14">
-        <a
-          href="/"
-          class="site-header__brand inline-flex min-w-0 items-center gap-3 no-underline"
-          (click)="goHome($event)"
-        >
-          <img
-            src="/gbaski-logo.svg"
-            alt="Gbaski AI Services logo"
-            class="site-header__logo shrink-0"
-            width="29"
-            height="36"
-            aria-hidden="true"
-          />
-          <span class="site-header__title font-heading theme-text truncate text-base font-semibold sm:text-lg">
-            Gbaski AI Services
-          </span>
-        </a>
+<header class="site-header">
+  <div class="site-header__inner mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-3 sm:px-6 md:px-10 lg:px-14">
+    <a
+      href="/"
+      class="site-header__brand inline-flex min-w-0 items-center gap-3 no-underline"
+      (click)="goHome($event)"
+    >
+      <img
+        src="/gbaski-logo.svg"
+        alt="Gbaski AI Services logo"
+        class="site-header__logo shrink-0"
+        width="29"
+        height="36"
+      />
+      <span class="site-header__title font-heading theme-text truncate text-base font-semibold sm:text-lg">
+        Gbaski AI Services
+      </span>
+    </a>
 
-        <button
-          type="button"
-          class="theme-icon-btn shrink-0"
-          (click)="themeService.toggle()"
-          [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+    <nav class="site-header__nav" aria-label="Primary">
+      @for (item of nav; track item.label) {
+        <div
+          class="site-header__item"
+          (mouseenter)="setMenu(item.children ? item.label : null)"
+          (mouseleave)="setMenu(null)"
         >
-          @if (themeService.theme() === 'dark') {
-            <svg lucideSun [size]="18" [strokeWidth]="1.75" aria-hidden="true"></svg>
-          } @else {
-            <svg lucideMoon [size]="18" [strokeWidth]="1.75" aria-hidden="true"></svg>
+          @if (item.children?.length) {
+            <button
+              type="button"
+              class="site-header__link"
+              [attr.aria-expanded]="openMenu() === item.label"
+              (click)="setMenu(openMenu() === item.label ? null : item.label)"
+            >
+              {{ item.label }}
+            </button>
+            @if (openMenu() === item.label) {
+              <div class="site-header__dropdown theme-bg-elevated">
+                @for (child of item.children; track child.path) {
+                  <a
+                    [routerLink]="child.path"
+                    class="site-header__dropdown-link"
+                    (click)="closeMobile()"
+                  >
+                    <span class="font-heading">{{ child.label }}</span>
+                    @if (child.description) {
+                      <span class="theme-text-muted">{{ child.description }}</span>
+                    }
+                  </a>
+                }
+              </div>
+            }
+          } @else if (item.path) {
+            <a [routerLink]="item.path" class="site-header__link" (click)="closeMobile()">{{ item.label }}</a>
           }
-        </button>
-      </div>
-    </header>
-  
+        </div>
+      }
+    </nav>
+
+    <div class="site-header__actions">
+      <button
+        type="button"
+        class="theme-icon-btn shrink-0"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        @if (themeService.theme() === 'dark') {
+          <svg lucideSun [size]="18" [strokeWidth]="1.75" aria-hidden="true"></svg>
+        } @else {
+          <svg lucideMoon [size]="18" [strokeWidth]="1.75" aria-hidden="true"></svg>
+        }
+      </button>
+      <button type="button" class="btn-pill btn-pill--primary btn-pill--sm site-header__cta" (click)="bookCall()">
+        Book a call
+      </button>
+      <button
+        type="button"
+        class="theme-icon-btn site-header__menu-btn"
+        (click)="toggleMobile()"
+        [attr.aria-label]="mobileOpen() ? 'Close menu' : 'Open menu'"
+      >
+        @if (mobileOpen()) {
+          <svg lucideX [size]="18" [strokeWidth]="1.75" aria-hidden="true"></svg>
+        } @else {
+          <svg lucideMenu [size]="18" [strokeWidth]="1.75" aria-hidden="true"></svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  @if (mobileOpen()) {
+    <div class="site-header__mobile theme-bg-elevated">
+      @for (item of nav; track item.label) {
+        <div class="site-header__mobile-group">
+          @if (item.path && !item.children?.length) {
+            <a [routerLink]="item.path" class="site-header__mobile-link" (click)="closeMobile()">{{ item.label }}</a>
+          } @else {
+            <p class="site-header__mobile-label font-mono-label">{{ item.label }}</p>
+            @for (child of item.children; track child.path) {
+              <a [routerLink]="child.path" class="site-header__mobile-link" (click)="closeMobile()">{{ child.label }}</a>
+            }
+          }
+        </div>
+      }
+      <button type="button" class="btn-pill btn-pill--primary" (click)="bookCall(); closeMobile()">Book a discovery call</button>
+    </div>
+  }
+</header>

@@ -13,23 +13,25 @@ export const SITE_LOCALE = 'en-NG';
 export const ORGANIZATION_FOUNDING_DATE = '2024';
 
 export const DEFAULT_TITLE =
-  'AI Services in Nigeria | Automation, Chatbots & Agents | Gbaski AI Services';
+  'AI Workflow Automation, Agents & CRM Integrations | Gbaski AI Services';
 
 export const DEFAULT_DESCRIPTION =
-  'Gbaski AI Services delivers AI services in Nigeria — automation, chatbots, voice agents, and custom integrations built for production. Talk to our AI consultant and see our projects.';
+  'We design and ship AI workflow automation, agents, chatbots, and CRM systems on n8n, Make, Zapier, HubSpot, GoHighLevel, and WhatsApp. Book a discovery call, Nigeria, UK, US, and remote.';
 
 export { SERVICE_AREAS_DISPLAY, PRIMARY_SERVICE_CITIES, ADDITIONAL_SERVICE_STATES };
 
 /** Curated keywords for static meta tags (non-SSR crawlers read index.html). */
 export const STATIC_META_KEYWORDS = [
-  'AI services in Nigeria',
-  'AI services Nigeria',
+  'AI workflow automation',
+  'AI automation agency',
+  'n8n developer',
+  'CRM automation',
+  'HubSpot automation',
+  'GoHighLevel automation',
+  'WhatsApp AI chatbot',
+  'AI agents',
   'AI automation Nigeria',
-  'chatbot development Nigeria',
-  'AI agents Nigeria',
-  'workflow automation',
-  'WhatsApp chatbot',
-  'n8n automation',
+  'hire AI automation consultant',
 ].join(', ');
 
 export const DEFAULT_KEYWORDS = STATIC_META_KEYWORDS;
@@ -43,6 +45,7 @@ export const ORGANIZATION_EMAIL_PLANNED = 'aiservices@gbaski.app';
 export const ORGANIZATION_SAME_AS = [
   'https://gbaski.app',
   'https://wa.me/2348034309999',
+  'https://www.linkedin.com/company/gbaski',
 ] as const;
 
 export const ORGANIZATION = {
@@ -55,7 +58,7 @@ export const ORGANIZATION = {
   contactUrl: 'https://wa.me/2348034309999',
   foundingDate: ORGANIZATION_FOUNDING_DATE,
   sameAs: [...ORGANIZATION_SAME_AS],
-  areaServed: 'Nigeria',
+  areaServed: 'Worldwide',
   description: DEFAULT_DESCRIPTION,
 };
 

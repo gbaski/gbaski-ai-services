@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, afterNextRender, computed, effect, inject, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LucideArrowRight, LucideBot } from '@lucide/angular';
-import { DiscoveryCallDialogComponent } from '../discovery-call-dialog/discovery-call-dialog.component';
+import { LucideBot } from '@lucide/angular';
 import { LogoStripComponent } from '../logo-strip/logo-strip.component';
 import { ShaderBackgroundComponent } from '../shader-background/shader-background.component';
 import { VoiceConsultantCallbarComponent } from '../voice-consultant-callbar/voice-consultant-callbar.component';
@@ -28,10 +27,8 @@ interface ConnectorBox {
   selector: 'app-hero',
   standalone: true,
   imports: [
-    LucideArrowRight,
     LucideBot,
     RouterLink,
-    DiscoveryCallDialogComponent,
     LogoStripComponent,
     ShaderBackgroundComponent,
     VoiceConsultantCallbarComponent,
@@ -54,8 +51,8 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   private cardResizeObserver?: ResizeObserver;
 
   readonly headlineLines = [
-    { text: 'We Build AI Automation, Chatbots & Agents', accent: false },
-    { text: 'For Businesses', accent: true },
+    { text: 'AI automation, agents & CRM', accent: false },
+    { text: 'that get work done', accent: true },
   ];
 
   readonly team: HeroTeamLead[] = getHeroTeamLeads();
@@ -63,7 +60,6 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   readonly extendedTeamMembers = signal<
     Array<{ name: string; photo: string; slug: string; jobTitle?: string }>
   >([]);
-  readonly discoveryDialogOpen = signal(false);
 
   constructor() {
     afterNextRender(() => {
@@ -102,19 +98,6 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
     return 'Talk to our AI consultant';
   });
-
-  scrollTo(event: Event, target: string): void {
-    event.preventDefault();
-    this.smoothScroll.scrollTo(target, { offset: -20 });
-  }
-
-  openDiscoveryDialog(): void {
-    this.discoveryDialogOpen.set(true);
-  }
-
-  closeDiscoveryDialog(): void {
-    this.discoveryDialogOpen.set(false);
-  }
 
   photoAlt(member: Pick<HeroTeamLead, 'name' | 'jobTitle'>, context: 'hero' | 'avatar' = 'hero'): string {
     return memberPhotoAlt(member, context);
