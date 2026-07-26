@@ -4,6 +4,7 @@ export interface TeamMember {
   slug: string;
   name: string;
   linkedIn?: string;
+  upwork?: string;
   photo?: string;
   jobTitle?: string;
 }
@@ -28,6 +29,7 @@ export const CORE_TEAM_LEADS: TeamMember[] = [
     name: 'Wuyi Adepoju',
     jobTitle: 'AI Solutions Engineer',
     linkedIn: linkedIn('https://www.linkedin.com/in/wuyi-adepoju-75421453/'),
+    upwork: 'https://www.upwork.com/freelancers/wuyiadepoju',
     photo: '/assets/team/wuyi-adepoju.png',
   },
 ];

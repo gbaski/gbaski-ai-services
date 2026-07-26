@@ -107,10 +107,16 @@
   align-items: center;
 }
 
-.team-card__linkedin {
+.team-card__socials {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: 0.65rem;
+  right: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.team-card__social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -121,12 +127,12 @@
   transition: color 0.2s ease, background 0.2s ease;
 }
 
-.team-card__linkedin:hover {
+.team-card__social:hover {
   color: var(--theme-fg);
   background: var(--theme-hover-bg);
 }
 
-.team-card__linkedin-icon {
+.team-card__social-icon {
   width: 0.875rem;
   height: 0.875rem;
 }
@@ -160,7 +166,7 @@
   align-items: flex-start;
   justify-content: center;
   min-width: 0;
-  padding-right: 1.5rem;
+  padding-right: 4.25rem;
 }
 
 .team-card__badge {
