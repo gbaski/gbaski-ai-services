@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LucideZap } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { getServicesByPriority } from '../../data/services.data';
 
 @Component({
   selector: 'app-ai-services-section',
   standalone: true,
-  imports: [ScrollRevealDirective, RouterLink],
+  imports: [ScrollRevealDirective, RouterLink, LucideZap],
   templateUrl: './ai-services-section.component.html',
   styleUrl: './ai-services-section.component.scss',
 })
 export class AiServicesSectionComponent {
   readonly featured = [
     ...getServicesByPriority('P0'),
-    ...getServicesByPriority('P1').slice(0, 4),
-  ];
+    ...getServicesByPriority('P1'),
+  ].slice(0, 6);
 }

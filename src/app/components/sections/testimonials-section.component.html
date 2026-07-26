@@ -1,5 +1,5 @@
 <section id="testimonials" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14">
-  <div class="mx-auto max-w-[1400px]">
+  <div class="mx-auto max-w-[1200px]">
     <p appScrollReveal class="section-eyebrow mb-4">Social proof</p>
     <h2
       appScrollReveal
@@ -12,20 +12,20 @@
       We prioritise systems that survive real users, real auth, and real message volume, not prototype theatre.
     </p>
 
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
       @for (item of testimonials; track item.name; let i = $index) {
         <blockquote
           appScrollReveal
-          [appScrollRevealDelay]="i * 70"
-          class="testimonial-card theme-card rounded-2xl p-8"
+          [appScrollRevealDelay]="i * 50"
+          class="testimonial-card theme-card p-8"
         >
-          <p class="theme-text-soft mb-6 text-[15px] leading-relaxed">
+          <p class="theme-text-soft mb-6 text-base leading-relaxed">
             "{{ item.quote }}"
           </p>
           <footer>
             <cite class="not-italic">
-              <span class="theme-text block text-sm font-medium">{{ item.name }}</span>
-              <span class="theme-text-secondary text-xs">{{ item.role }} · {{ item.company }}</span>
+              <span class="theme-text block text-sm font-semibold">{{ item.name }}</span>
+              <span class="theme-text-muted text-sm">{{ item.role }} · {{ item.company }}</span>
             </cite>
           </footer>
         </blockquote>

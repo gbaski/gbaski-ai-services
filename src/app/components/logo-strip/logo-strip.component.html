@@ -1,25 +1,16 @@
-    <div class="logo-strip" aria-label="Client logos">
-      <div class="logo-strip__viewport" #viewport>
-        <div class="logo-strip__container">
-          @for (client of loopedClients(); track $index) {
-            <div class="logo-strip__slide">
-              <div class="logo-strip__item">
-                <img
-                  class="logo-strip__image"
-                  [src]="client.logo"
-                  [alt]="client.name + ' logo'"
-                  width="36"
-                  height="36"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="logo-strip__label font-mono-label text-[11px] font-medium uppercase tracking-[0.1em] md:text-xs">
-                  {{ client.name }}
-                </span>
-              </div>
-            </div>
-          }
-        </div>
-      </div>
-    </div>
-  
+<ul class="logo-strip" aria-label="Client logos">
+  @for (client of clients; track client.name) {
+    <li class="logo-strip__item">
+      <img
+        class="logo-strip__image"
+        [src]="client.logo"
+        [alt]="client.name + ' logo'"
+        width="36"
+        height="36"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="logo-strip__label">{{ client.name }}</span>
+    </li>
+  }
+</ul>

@@ -20,7 +20,7 @@ import { SeoService } from '../../services/seo.service';
   template: `
     <app-header />
     <main class="theme-bg theme-text px-6 py-10 md:px-10 lg:px-14">
-      <div class="mx-auto max-w-[1400px] pb-24">
+      <div class="mx-auto max-w-[1200px] pb-24">
         <app-breadcrumbs [items]="[{ label: 'Home', path: '/' }, { label: 'Case Studies' }]" />
         <h1 class="font-heading" style="font-size:clamp(2rem,4vw,3rem);font-weight:600;margin:0">{{ hub.h1 }}</h1>
         <p class="section-body mt-5 max-w-3xl">{{ hub.lead }}</p>
@@ -28,7 +28,7 @@ import { SeoService } from '../../services/seo.service';
           @for (project of projects; track project.id) {
             <a [routerLink]="['/case-studies', project.id]" class="theme-card"
               style="display:grid;gap:0.45rem;padding:1.25rem;border-radius:1rem;text-decoration:none;border:1px solid var(--theme-border-subtle);color:inherit">
-              <span class="font-mono-label" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--theme-text-secondary)">{{ project.clientName }}</span>
+              <span class="font-mono-label" style="font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--theme-muted-soft)">{{ project.clientName }}</span>
               <span class="font-heading" style="font-weight:600;font-size:1.2rem">{{ project.title }}</span>
               <span class="theme-text-muted">{{ project.outcomeSummary || project.description.split('\\n')[0] }}</span>
             </a>
@@ -90,7 +90,7 @@ export class CaseStudiesHubComponent implements OnInit, OnDestroy {
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin-top:1.75rem">
               @for (metric of p.metrics; track metric.label) {
                 <div class="theme-card" style="padding:1rem;border-radius:1rem;border:1px solid var(--theme-border-subtle)">
-                  <p class="font-mono-label" style="margin:0 0 0.35rem;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--theme-text-secondary)">{{ metric.label }}</p>
+                  <p class="font-mono-label" style="margin:0 0 0.35rem;font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--theme-muted-soft)">{{ metric.label }}</p>
                   <p class="font-heading" style="margin:0;font-weight:600">{{ metric.value }}</p>
                 </div>
               }

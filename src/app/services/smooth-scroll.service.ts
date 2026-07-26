@@ -21,11 +21,15 @@ export class SmoothScrollService implements OnDestroy {
       return;
     }
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     this.lenis = new Lenis({
-      duration: 1.15,
+      duration: 0.7,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
     });
 
     document.documentElement.classList.add('lenis', 'lenis-smooth');

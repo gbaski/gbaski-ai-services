@@ -1,42 +1,36 @@
-    <section
-      id="how-we-work"
-      class="how-we-work theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14"
-      aria-labelledby="how-we-work-heading"
-    >
-      <div class="mx-auto max-w-[1400px]">
-        <div class="how-we-work__intro">
-          <p appScrollReveal class="section-eyebrow mb-4">How we work</p>
-          <h2
-            id="how-we-work-heading"
-            appScrollReveal
-            [appScrollRevealDelay]="80"
-            class="section-heading mx-auto max-w-3xl"
-          >
-            From discovery to ongoing support
-          </h2>
-          <p
-            appScrollReveal
-            [appScrollRevealDelay]="120"
-            class="section-body mx-auto mt-5 max-w-2xl"
-          >
-            A straightforward engagement model so you know what happens at each stage. Most focused automations go live in 4-8 weeks. You own the workflows, prompts, and data.
-          </p>
-        </div>
+<section
+  id="how-we-work"
+  class="how-we-work theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14"
+  aria-labelledby="how-we-work-heading"
+>
+  <div class="mx-auto max-w-[1200px]">
+    <div class="how-we-work__intro">
+      <p appScrollReveal class="section-eyebrow mb-4">How we work</p>
+      <h2
+        id="how-we-work-heading"
+        appScrollReveal
+        [appScrollRevealDelay]="80"
+        class="section-heading mx-auto max-w-3xl"
+      >
+        From discovery to ongoing support
+      </h2>
+      <p
+        appScrollReveal
+        [appScrollRevealDelay]="120"
+        class="section-body mx-auto mt-5 max-w-2xl"
+      >
+        A straightforward engagement model so you know what happens at each stage. Most focused automations go live in 4-8 weeks. You own the workflows, prompts, and data.
+      </p>
+    </div>
 
-        <ol class="how-we-work__steps" appScrollReveal [appScrollRevealDelay]="180">
-          @for (step of steps; track step.id; let i = $index; let last = $last) {
-            <li class="how-we-work__step">
-              <div class="how-we-work__step-card theme-bg-elevated">
-                <span class="how-we-work__step-index font-mono-label">{{ stepIndex(i) }}</span>
-                <h3 class="how-we-work__step-title font-heading">{{ step.title }}</h3>
-                <p class="how-we-work__step-text">{{ step.description }}</p>
-              </div>
-              @if (!last) {
-                <span class="how-we-work__arrow" aria-hidden="true">→</span>
-              }
-            </li>
-          }
-        </ol>
-      </div>
-    </section>
-  
+    <ol class="how-we-work__steps" appScrollReveal [appScrollRevealDelay]="180">
+      @for (step of steps; track step.id; let i = $index) {
+        <li class="how-we-work__step">
+          <span class="how-we-work__step-index font-mono-label">{{ stepIndex(i) }}</span>
+          <h3 class="how-we-work__step-title font-heading">{{ step.title }}</h3>
+          <p class="how-we-work__step-text">{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

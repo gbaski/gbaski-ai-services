@@ -130,13 +130,13 @@ export const HERO_TEAM_LEAD_PRESENTATION: Record<
     anchorId: 'team-lead-mariam',
     accent: 'loubby',
     credential: 'Loubby AI Trained',
-    focus: 'n8n, Workflow Automation, Conversational AI',
+    focus: 'AI Automation Engineer | n8n | Workflow Automation | Conversational AI',
   },
   'wuyi-adepoju': {
     anchorId: 'team-lead-wuyi',
     accent: 'aws',
     credential: 'AWS AI Certified',
-    focus: 'Golang, AWS, Serverless & AI Integrations',
+    focus: 'AI Solutions Engineer | Golang Backend Engineer | AI Automation | n8n | API Integration',
   },
 };
 

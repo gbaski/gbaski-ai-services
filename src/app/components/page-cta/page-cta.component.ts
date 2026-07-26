@@ -44,9 +44,10 @@ import { ORGANIZATION } from '../../seo/site-seo.config';
   `,
   styles: `
     .page-cta {
-      border-radius: 1.25rem;
-      padding: 1.75rem;
-      border: 1px solid var(--theme-border-subtle);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      border: 1px solid var(--theme-border);
+      box-shadow: var(--theme-shadow-soft);
     }
     .page-cta--compact {
       padding: 1.25rem;
@@ -79,17 +80,18 @@ import { ORGANIZATION } from '../../seo/site-seo.config';
       align-items: center;
     }
     .page-cta__whatsapp {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--theme-text-secondary);
+      font-size: 0.875rem;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 500;
+      color: var(--theme-muted);
       text-decoration: none;
     }
     .page-cta__calendly {
       min-height: 420px;
-      border-radius: 1rem;
+      border-radius: 0.75rem;
       overflow: hidden;
-      border: 1px solid var(--theme-border-subtle);
+      border: 1px solid var(--theme-border);
       background: var(--theme-bg);
     }
     .page-cta__calendly iframe {
@@ -114,7 +116,7 @@ export class PageCtaComponent {
   readonly calendlySafeUrl: SafeResourceUrl;
 
   constructor(sanitizer: DomSanitizer) {
-    const url = `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0b0e13&text_color=e7ebf2&primary_color=e8cf2a`;
+    const url = `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0f1419&text_color=e8ecf1&primary_color=c4a90f`;
     this.calendlySafeUrl = sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 

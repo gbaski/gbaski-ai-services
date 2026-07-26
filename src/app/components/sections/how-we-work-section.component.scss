@@ -1,117 +1,107 @@
-    .how-we-work {
-      border-top: 1px solid var(--theme-border-subtle);
-    }
+.how-we-work {
+  border-top: 1px solid var(--theme-border-subtle);
+}
 
-    .how-we-work__intro {
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
+.how-we-work__intro {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
 
-    .how-we-work__steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+.how-we-work__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-    .how-we-work__step {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.75rem;
-    }
+.how-we-work__step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--theme-border-subtle);
+}
 
-    .how-we-work__step-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.625rem;
-      height: 100%;
-      padding: 1.25rem;
-      border: 1px solid var(--theme-border-subtle);
-      border-radius: 1rem;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-    }
+.how-we-work__step:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
 
-    .how-we-work__step-index {
-      font-size: 0.625rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--theme-muted-soft);
-    }
+.how-we-work__step:first-child {
+  padding-top: 0;
+}
 
-    .how-we-work__step-title {
-      margin: 0;
-      font-size: 1.125rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--theme-fg);
-      line-height: 1.2;
-    }
+.how-we-work__step-index {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--theme-muted-soft);
+}
 
-    .how-we-work__step-text {
-      margin: 0;
-      font-size: 0.875rem;
-      line-height: 1.7;
-      color: var(--theme-muted);
-    }
+.how-we-work__step-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--theme-fg);
+  line-height: 1.2;
+}
 
-    .how-we-work__arrow {
-      align-self: center;
-      font-family: var(--font-mono);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--theme-accent);
-      line-height: 1;
-      transform: rotate(90deg);
-    }
+.how-we-work__step-text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--theme-muted);
+}
 
-    @media (min-width: 768px) {
-      .how-we-work__intro {
-        margin-bottom: 3rem;
-      }
+@media (min-width: 768px) {
+  .how-we-work__intro {
+    margin-bottom: 3rem;
+  }
 
-      .how-we-work__steps {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-      }
+  .how-we-work__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0;
+    row-gap: 1.75rem;
+  }
 
-      .how-we-work__step {
-        display: block;
-      }
+  .how-we-work__step {
+    padding: 0 0 0 1.5rem;
+    border-bottom: none;
+    border-left: 1px solid var(--theme-border-subtle);
+  }
 
-      .how-we-work__arrow {
-        display: none;
-      }
+  .how-we-work__step:nth-child(odd) {
+    padding-left: 0;
+    border-left: none;
+    padding-right: 1.5rem;
+  }
 
-      .how-we-work__step-card {
-        padding: 1.5rem;
-      }
-    }
+  .how-we-work__step:first-child,
+  .how-we-work__step:last-child {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
 
-    @media (min-width: 1024px) {
-      .how-we-work__steps {
-        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
-        gap: 0.75rem 0.5rem;
-        align-items: stretch;
-      }
+@media (min-width: 1024px) {
+  .how-we-work__steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
 
-      .how-we-work__step {
-        display: contents;
-      }
+  .how-we-work__step,
+  .how-we-work__step:nth-child(odd) {
+    padding: 0 0 0 1.5rem;
+    border-left: 1px solid var(--theme-border-subtle);
+    border-bottom: none;
+  }
 
-      .how-we-work__arrow {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: none;
-      }
-
-      .how-we-work__step-card {
-        padding: 1.625rem;
-      }
-    }
-  
+  .how-we-work__step:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+}

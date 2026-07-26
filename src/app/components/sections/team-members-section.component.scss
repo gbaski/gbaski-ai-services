@@ -107,11 +107,7 @@
     }
 
     .team-card__ring {
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(243, 211, 2, 0.35);
-      border-radius: inherit;
-      pointer-events: none;
+      display: none;
     }
 
     .team-card__body {
@@ -125,28 +121,29 @@
     .team-card__name {
       margin: 0;
       font-family: var(--font-heading);
-      font-size: 1.125rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-transform: none;
       color: var(--theme-fg);
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .team-card__profile-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.55rem 0.95rem;
-      border: 1px solid var(--theme-border-strong);
-      border-radius: 999px;
+      min-height: 40px;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--theme-border);
+      border-radius: 0.5rem;
       background: transparent;
       color: var(--theme-fg);
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
       text-decoration: none;
       transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }

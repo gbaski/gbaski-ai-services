@@ -23,7 +23,7 @@ import { SeoService } from '../../services/seo.service';
   template: `
     <app-header />
     <main class="theme-bg theme-text px-6 py-10 md:px-10 md:py-14 lg:px-14">
-      <div class="mx-auto max-w-[1400px] pb-24">
+      <div class="mx-auto max-w-[1200px] pb-24">
         <app-breadcrumbs [items]="[{ label: 'Home', path: '/' }, { label: 'Services' }]" />
         <h1 class="hub-title font-heading">{{ hub.h1 }}</h1>
         <p class="section-body mt-5 max-w-3xl">{{ hub.lead }}</p>

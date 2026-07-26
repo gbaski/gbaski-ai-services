@@ -96,13 +96,7 @@
 }
 
 .site-header__cta {
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .site-header__cta {
-    display: inline-flex;
-  }
+  display: inline-flex;
 }
 
 .site-header__mobile {
@@ -127,10 +121,11 @@
 
 .site-header__mobile-label {
   margin: 0;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--theme-text-secondary);
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--theme-muted-soft);
 }
 
 .site-header__mobile-link {

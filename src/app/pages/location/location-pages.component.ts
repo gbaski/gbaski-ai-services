@@ -20,7 +20,7 @@ import { SeoService } from '../../services/seo.service';
   template: `
     <app-header />
     <main class="theme-bg theme-text px-6 py-10 md:px-10 lg:px-14">
-      <div class="mx-auto max-w-[1400px] pb-24">
+      <div class="mx-auto max-w-[1200px] pb-24">
         <app-breadcrumbs [items]="[{ label: 'Home', path: '/' }, { label: 'Locations' }]" />
         <h1 class="font-heading" style="font-size:clamp(2rem,4vw,3rem);font-weight:600;margin:0">{{ hub.h1 }}</h1>
         <p class="section-body mt-5 max-w-3xl">{{ hub.lead }}</p>
@@ -28,7 +28,7 @@ import { SeoService } from '../../services/seo.service';
           @for (page of pages; track page.slug) {
             <a class="theme-card" style="display:grid;gap:0.35rem;padding:1.15rem;border-radius:1rem;text-decoration:none;border:1px solid var(--theme-border-subtle);color:inherit"
               [routerLink]="['/locations', page.slug]">
-              <span class="font-mono-label" style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--theme-text-secondary)">{{ page.regionLabel }}</span>
+              <span class="font-mono-label" style="font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--theme-muted-soft)">{{ page.regionLabel }}</span>
               <span class="font-heading" style="font-weight:600">{{ page.name }}</span>
               <span class="theme-text-muted">{{ page.lead }}</span>
             </a>
@@ -75,7 +75,7 @@ export class LocationsHubComponent implements OnInit, OnDestroy {
     @if (page; as p) {
       <app-header />
       <main class="theme-bg theme-text px-6 py-10 md:px-10 lg:px-14">
-        <div class="mx-auto max-w-[1400px] pb-24">
+        <div class="mx-auto max-w-[1200px] pb-24">
           <app-breadcrumbs [items]="[
             { label: 'Home', path: '/' },
             { label: 'Locations', path: '/locations' },

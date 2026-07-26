@@ -6,7 +6,7 @@ import { PRICING_TIERS } from '../../data/social-proof.data';
   standalone: true,
   template: `
     <section id="pricing" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14" aria-labelledby="pricing-heading">
-      <div class="mx-auto max-w-[1400px]">
+      <div class="mx-auto max-w-[1200px]">
         <p class="section-eyebrow mb-4">Engagements</p>
         <h2 id="pricing-heading" class="section-heading max-w-2xl">
           Pricing that matches how buyers hire
@@ -40,18 +40,22 @@ import { PRICING_TIERS } from '../../data/social-proof.data';
     }
     .pricing-card {
       padding: 1.5rem;
-      border-radius: 1.25rem;
-      border: 1px solid var(--theme-border-subtle);
+      border-radius: 0.75rem;
+      border: 1px solid var(--theme-border);
+      box-shadow: var(--theme-shadow-soft);
+    }
+    .pricing-card:nth-child(2) {
+      border-color: var(--theme-border-strong);
     }
     .pricing-card__eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--theme-text-secondary);
+      font-size: 0.8125rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: var(--theme-muted-soft);
       margin: 0 0 0.75rem;
     }
     .pricing-card__title {
-      font-size: 1.15rem;
+      font-size: 1.125rem;
       font-weight: 600;
       margin: 0 0 0.75rem;
       letter-spacing: -0.02em;
@@ -59,21 +63,22 @@ import { PRICING_TIERS } from '../../data/social-proof.data';
     .pricing-card__fits {
       margin: 0 0 1rem;
       line-height: 1.6;
-      font-size: 0.92rem;
+      font-size: 0.9375rem;
     }
     .pricing-card__from {
       margin: 0 0 1rem;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 0.875rem;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 600;
       color: var(--theme-accent);
     }
     .pricing-card__list {
       margin: 0;
       padding-left: 1.1rem;
-      color: var(--theme-text-muted);
+      color: var(--theme-muted);
       line-height: 1.7;
-      font-size: 0.92rem;
+      font-size: 0.9375rem;
     }
   `,
 })

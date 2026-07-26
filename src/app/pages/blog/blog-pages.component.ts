@@ -19,7 +19,7 @@ import { SeoService } from '../../services/seo.service';
   template: `
     <app-header />
     <main class="theme-bg theme-text px-6 py-10 md:px-10 lg:px-14">
-      <div class="mx-auto max-w-[1400px] pb-24">
+      <div class="mx-auto max-w-[1200px] pb-24">
         <app-breadcrumbs [items]="[{ label: 'Home', path: '/' }, { label: 'Blog' }]" />
         <h1 class="font-heading" style="font-size:clamp(2rem,4vw,3rem);font-weight:600;margin:0">{{ hub.h1 }}</h1>
         <p class="section-body mt-5 max-w-3xl">{{ hub.lead }}</p>
@@ -27,7 +27,7 @@ import { SeoService } from '../../services/seo.service';
           @for (post of posts; track post.slug) {
             <a [routerLink]="['/blog', post.slug]" class="theme-card"
               style="display:grid;gap:0.35rem;padding:1.15rem 1.25rem;border-radius:1rem;text-decoration:none;border:1px solid var(--theme-border-subtle);color:inherit">
-              <span class="font-mono-label" style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--theme-text-secondary)">
+              <span class="font-mono-label" style="font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--theme-muted-soft)">
                 {{ post.category }} · {{ post.readMinutes }} min · {{ post.datePublished }}
               </span>
               <span class="font-heading" style="font-weight:600;font-size:1.1rem">{{ post.title }}</span>
@@ -82,7 +82,7 @@ export class BlogHubComponent implements OnInit, OnDestroy {
             { label: 'Blog', path: '/blog' },
             { label: p.title }
           ]" />
-          <p class="font-mono-label" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--theme-text-secondary)">
+          <p class="font-mono-label" style="font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--theme-muted-soft)">
             {{ p.category }} · {{ p.datePublished }} · {{ p.readMinutes }} min read
           </p>
           <h1 class="font-heading" style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:-0.03em;margin:1rem 0 0;line-height:1.15">

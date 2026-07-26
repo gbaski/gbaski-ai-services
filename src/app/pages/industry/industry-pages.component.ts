@@ -20,7 +20,7 @@ import { SeoService } from '../../services/seo.service';
   template: `
     <app-header />
     <main class="theme-bg theme-text px-6 py-10 md:px-10 lg:px-14">
-      <div class="mx-auto max-w-[1400px] pb-24">
+      <div class="mx-auto max-w-[1200px] pb-24">
         <app-breadcrumbs [items]="[{ label: 'Home', path: '/' }, { label: 'Industries' }]" />
         <h1 class="font-heading" style="font-size:clamp(2rem,4vw,3rem);font-weight:600;letter-spacing:-0.03em;margin:0">
           {{ hub.h1 }}
@@ -77,7 +77,7 @@ export class IndustriesHubComponent implements OnInit, OnDestroy {
     @if (page; as p) {
       <app-header />
       <main class="theme-bg theme-text px-6 py-10 md:px-10 lg:px-14">
-        <div class="mx-auto max-w-[1400px] pb-24">
+        <div class="mx-auto max-w-[1200px] pb-24">
           <app-breadcrumbs [items]="[
             { label: 'Home', path: '/' },
             { label: 'Industries', path: '/industries' },

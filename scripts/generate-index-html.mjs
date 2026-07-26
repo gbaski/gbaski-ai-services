@@ -314,10 +314,10 @@ const html = `<!doctype html>
     })();
   </script>
   <style>
-    html { color-scheme: dark; background: #0b0e13; }
-    body { margin: 0; background: #0b0e13; color: #e7ebf2; }
-    html[data-theme="light"] { color-scheme: light; background: #f3f5f8; }
-    html[data-theme="light"] body { background: #f3f5f8; color: #12161e; }
+    html { color-scheme: dark; background: #0f1419; }
+    body { margin: 0; background: #0f1419; color: #e8ecf1; }
+    html[data-theme="light"] { color-scheme: light; background: #f7f8fa; }
+    html[data-theme="light"] body { background: #f7f8fa; color: #0f1419; }
   </style>
   <title>${TITLE}</title>
   <base href="/">
@@ -334,7 +334,7 @@ const html = `<!doctype html>
   <link rel="preload" as="image" href="/gbaski-logo.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="/gbaski-logo.svg">
-  <meta name="theme-color" content="#0b0e13">
+  <meta name="theme-color" content="#0f1419">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${SITE_NAME}">
   <meta property="og:title" content="${TITLE}">
@@ -359,7 +359,7 @@ const html = `<!doctype html>
 ${jsonLdScripts}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>

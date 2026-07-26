@@ -1,46 +1,72 @@
-    <div class="stacked-parallax" #stackRoot>
-      <div class="stacked-parallax__track">
-        <section id="projects" class="stacked-panel stacked-panel--intro stacked-panel--1" data-panel="intro">
-          <div class="stacked-panel__inner panel-inner">
-            <div
-              class="project-panel__bg parallax-layer"
-              data-pattern="mesh"
-              data-speed="0.15"
-              aria-hidden="true"
-            ></div>
-            <div class="stacked-panel__content mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-14">
-              <div class="stacked-panel__intro stacked-panel__intro--center">
-                <p class="section-eyebrow mb-4">Case studies</p>
-                <h2 class="stacked-panel__heading">
-                  <span class="theme-text">Selected work in production</span>
-                </h2>
-                <p class="theme-text-muted projects-section__intro mt-6 max-w-3xl text-sm leading-relaxed md:text-base">
-                  {{ pageIntro }}
-                  Authenticated assistants, internal AI platforms, and n8n workflows, with dedicated case study pages for each.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        @for (project of projects; track project.id; let i = $index) {
-          <section
-            [class]="'stacked-panel stacked-panel--project stacked-panel--' + (i + 2)"
-            [attr.data-panel]="project.id"
-          >
-            <div class="stacked-panel__inner panel-inner">
-              <div
-                class="project-panel__bg parallax-layer"
-                [attr.data-pattern]="patternFor(i)"
-                data-speed="0.2"
-                aria-hidden="true"
-              ></div>
-              <div class="stacked-panel__content mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-14">
-                <app-project-card [project]="project" />
-              </div>
-            </div>
-          </section>
-        }
-      </div>
+<section
+  id="projects"
+  class="projects-section theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14"
+  aria-labelledby="projects-heading"
+>
+  <div class="mx-auto max-w-[1200px]">
+    <div class="projects-section__intro">
+      <p appScrollReveal class="section-eyebrow mb-4">Case studies</p>
+      <h2
+        id="projects-heading"
+        appScrollReveal
+        [appScrollRevealDelay]="80"
+        class="section-heading"
+      >
+        Selected work in production
+      </h2>
+      <p
+        appScrollReveal
+        [appScrollRevealDelay]="120"
+        class="section-body projects-section__lead mt-5 max-w-2xl"
+      >
+        {{ pageIntro }}
+      </p>
     </div>
-  
+
+    <div class="projects-section__grid mt-12 md:mt-14">
+      @for (project of projects; track project.id; let i = $index) {
+        <article
+          appScrollReveal
+          [appScrollRevealDelay]="80 + i * 40"
+          class="project-tile"
+        >
+          <div class="project-tile__top">
+            <p class="project-tile__client font-mono-label">{{ project.clientName }}</p>
+            <h3 class="project-tile__title font-heading">
+              <a [routerLink]="['/case-studies', project.id]">{{ project.title }}</a>
+            </h3>
+            <p class="project-tile__outcome theme-text-muted">{{ outcome(project) }}</p>
+          </div>
+
+          @if (metricChips(project).length) {
+            <ul class="project-tile__metrics" aria-label="Key outcomes">
+              @for (metric of metricChips(project); track metric.label) {
+                <li class="project-tile__chip">
+                  <span class="project-tile__chip-value">{{ metric.value }}</span>
+                  <span class="project-tile__chip-label">{{ metric.label }}</span>
+                </li>
+              }
+            </ul>
+          }
+
+          <div class="project-tile__links">
+            <a class="project-tile__link" [routerLink]="['/case-studies', project.id]">
+              Read case study
+            </a>
+            @if (project.productionUrl) {
+              <a
+                class="project-tile__link project-tile__link--external"
+                [href]="project.productionUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit production
+                <svg lucideExternalLink [size]="14" [strokeWidth]="1.75" aria-hidden="true"></svg>
+              </a>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
