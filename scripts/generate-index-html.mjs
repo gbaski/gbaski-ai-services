@@ -10,7 +10,7 @@ const GA_MEASUREMENT_ID = 'G-9M315LZ644';
 const SITE_NAME = 'Gbaski AI Services';
 const TITLE = 'AI Workflow Automation, Agents & CRM Integrations | Gbaski AI Services';
 const DESC =
-  'We design and ship AI workflow automation, agents, chatbots, and CRM systems on n8n, Make, Zapier, HubSpot, GoHighLevel, and WhatsApp. Book a discovery call, Nigeria, UK, US, and remote.';
+  'Hire Gbaski for AI workflow automation, agents, CRM integrations, and WhatsApp chatbots on n8n, HubSpot, and GoHighLevel. Serving Nigeria, the UK, the US, and remote teams worldwide.';
 const OG_DESC = DESC;
 const KEYWORDS =
   'AI workflow automation, AI automation agency, n8n developer, CRM automation, HubSpot automation, GoHighLevel automation, WhatsApp AI chatbot, AI agents, AI automation Nigeria';

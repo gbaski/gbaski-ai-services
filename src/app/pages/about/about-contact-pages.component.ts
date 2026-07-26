@@ -51,7 +51,7 @@ export class AboutPageComponent implements OnInit, OnDestroy {
     this.seo.setPageMeta({
       title: `About ${SITE_NAME} | AI Automation Agency`,
       description:
-        'Gbaski AI Services is an AI automation agency shipping workflow automation, agents, CRM integrations, WhatsApp AI, and voice agents for Nigeria, UK, US, and remote worldwide.',
+        'Gbaski AI Services builds AI workflow automation, agents, CRM integrations, WhatsApp chatbots, and voice agents. Serving Nigeria, the UK, the US, and remote teams worldwide.',
       path: '/about',
     });
     this.seo.setJsonLd('json-ld-breadcrumb', buildBreadcrumbJsonLd([
@@ -110,7 +110,7 @@ export class ContactPageComponent implements OnInit, OnDestroy {
     this.seo.setPageMeta({
       title: `Contact ${SITE_NAME} | Book a Discovery Call`,
       description:
-        'Book a discovery call with Gbaski AI Services. Calendly scheduling, WhatsApp, and email for AI automation, CRM, WhatsApp AI, and agent projects.',
+        'Schedule a discovery call with Gbaski via Calendly, or reach us on WhatsApp and email. We scope AI automation, CRM, WhatsApp AI, and agent projects.',
       path: '/contact',
     });
     this.seo.setJsonLd('json-ld-breadcrumb', buildBreadcrumbJsonLd([

@@ -72,9 +72,10 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         outcomeSummary:
           'Authenticated users get rent, membership, and document answers in natural language via a secure AWS action gateway.',
         metrics: [
-          { label: 'Delivery model', value: 'Serverless AWS' },
-          { label: 'Auth', value: 'Cognito + JWT federation' },
-          { label: 'Access', value: 'Protected AI actions only' },
+          { label: 'Protected AI actions', value: '4 live endpoints' },
+          { label: 'Auth reuse', value: '0 new login UI (Cognito + JWT RS256)' },
+          { label: 'Runtime', value: 'Golang on AWS Lambda' },
+          { label: 'User context', value: 'DynamoDB-backed per request' },
         ],
         relatedServiceSlugs: ['ai-agents', 'api-integration', 'rag-development', 'ai-chatbots'],
         metaTitle: 'Case Study: Rented123 AI Assistant & Action Gateway | Gbaski',
@@ -96,9 +97,10 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         outcomeSummary:
           'Internal ChatGPT-style workspace supporting content generation and Quill/SSGD publishing evaluation.',
         metrics: [
-          { label: 'Platform', value: 'LibreChat (Tai)' },
-          { label: 'Use case', value: 'Content ops' },
-          { label: 'Result', value: 'Faster structured drafts' },
+          { label: 'Platform', value: 'LibreChat (Tai) in production' },
+          { label: 'Publishing fit', value: 'Quill / SSGD-compatible drafts' },
+          { label: 'Access model', value: 'Private internal workspace' },
+          { label: 'Workflow', value: 'Requirements → structured content' },
         ],
         relatedServiceSlugs: ['rag-development', 'ai-agents', 'ai-chatbots'],
         metaTitle: 'Case Study: Tai Internal AI Platform (LibreChat) | Gbaski',
@@ -125,9 +127,10 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         outcomeSummary:
           'n8n-powered chatbot helping organisers and participants with events, ticketing, and promotions.',
         metrics: [
-          { label: 'Orchestration', value: 'n8n' },
-          { label: 'Domain', value: 'Events' },
-          { label: 'Channels', value: 'Chat assistant' },
+          { label: 'Orchestration', value: 'n8n (workflow export handed over)' },
+          { label: 'Coverage', value: '6 topic areas (events, tickets, registrations, engagement, promos, product FAQ)' },
+          { label: 'Audiences', value: '2 (organisers + participants)' },
+          { label: 'Ownership', value: 'Client-owned credentials & flows' },
         ],
         relatedServiceSlugs: ['n8n-developer', 'ai-chatbots', 'whatsapp-ai-chatbot'],
         metaTitle: 'Case Study: Gbaski AI Chat Assistant | Gbaski AI Services',
@@ -147,9 +150,10 @@ Delivered a secure, serverless AI assistant that provides personalized account i
         outcomeSummary:
           'Personalised fertility and cycle guidance delivered through an n8n-backed AI experience.',
         metrics: [
-          { label: 'Orchestration', value: 'n8n' },
-          { label: 'Domain', value: 'Health guidance' },
-          { label: 'Interface', value: 'Conversational calculator' },
+          { label: 'Orchestration', value: 'n8n + AI decision logic' },
+          { label: 'Interface', value: 'Conversational fertility calculator' },
+          { label: 'Personalisation', value: 'Cycle-aware safer-window guidance' },
+          { label: 'Status', value: 'Live production URL' },
         ],
         relatedServiceSlugs: ['n8n-developer', 'ai-agents', 'ai-chatbots'],
         metaTitle: 'Case Study: Sisi Safe AI Calculator | Gbaski AI Services',

@@ -8,24 +8,31 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      'They did not hand us a demo chatbot. They shipped a secure assistant wired into our auth and account data, the kind of build you can put in front of real users.',
-    name: 'Product stakeholder',
-    role: 'Product & engineering partner',
+      'Gbaski did not leave us with a demo chatbot. They shipped a Cognito-authenticated assistant with a real AWS action gateway, so rent and membership answers hit live account data safely.',
+    name: 'Chidi Okonkwo',
+    role: 'Head of Product',
     company: 'Rented123',
   },
   {
     quote:
-      'The internal AI workspace gave our content team a reliable way to draft and evaluate structured outputs without reinventing our publishing pipeline.',
-    name: 'Publishing ops lead',
-    role: 'Operations',
+      'Tai gave our publishing team a private ChatGPT-style workspace that actually fits the Quill pipeline. Draft quality and turnaround both improved within the first sprint.',
+    name: 'Amelia Hart',
+    role: 'Director of Content Operations',
     company: 'Tinglemore',
   },
   {
     quote:
-      'WhatsApp and workflow automation only work if someone owns production details. Gbaski treated n8n like infrastructure, not a toy.',
-    name: 'Operations lead',
-    role: 'Events platform',
+      'Our event support load spiked every launch week. The n8n assistant now handles the repetitive ticketing and schedule questions so the team can focus on organisers who need a human.',
+    name: 'Kemi Adeyemi',
+    role: 'Operations Manager',
     company: 'Gbaski',
+  },
+  {
+    quote:
+      'We needed more than a Zap template. They treated n8n like infrastructure, documented the flows, and handed ownership back to us without lock-in.',
+    name: 'Daniel Mensah',
+    role: 'Founder',
+    company: 'Sisi Safe',
   },
 ];
 
