@@ -1,0 +1,87 @@
+<section
+  id="team"
+  class="team-section theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14"
+  aria-labelledby="team-heading"
+>
+  <div class="mx-auto max-w-[1400px]">
+    <div class="team-section__intro">
+      <p appScrollReveal class="section-eyebrow mb-4">Our team</p>
+      <h2 id="team-heading" appScrollReveal [appScrollRevealDelay]="80" class="section-heading mx-auto max-w-3xl">
+        The people behind the AI we ship
+      </h2>
+      <p appScrollReveal [appScrollRevealDelay]="120" class="section-body mx-auto mt-5 max-w-2xl">
+        Meet the engineers, builders, and operators who design, integrate, and deliver the automations,
+        chatbots, and agents our clients run in production.
+      </p>
+    </div>
+
+    <div class="team-carousel" appScrollReveal [appScrollRevealDelay]="180" ngSkipHydration>
+      <div class="team-carousel__controls">
+        <button
+          type="button"
+          class="team-carousel__nav"
+          (click)="scrollPrev()"
+          [disabled]="!canScrollPrev()"
+          aria-label="Previous team member"
+        >
+          <span aria-hidden="true">←</span>
+        </button>
+        <button
+          type="button"
+          class="team-carousel__nav"
+          (click)="scrollNext()"
+          [disabled]="!canScrollNext()"
+          aria-label="Next team member"
+        >
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="team-carousel__viewport" #viewport>
+        <div class="team-carousel__container">
+          @for (member of members; track trackMember($index, member)) {
+            <article class="team-carousel__slide">
+              <div class="team-card theme-bg-elevated">
+                <div class="team-card__photo-wrap">
+                  @if (member.photo) {
+                    <a
+                      class="team-card__photo-link"
+                      [routerLink]="['/profile', member.slug]"
+                      [attr.aria-label]="'View profile of ' + member.name"
+                    >
+                      <img
+                        class="team-card__photo"
+                        [src]="member.photo"
+                        [alt]="photoAlt(member)"
+                        [title]="photoAlt(member)"
+                        width="280"
+                        height="320"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                  } @else {
+                    <div class="team-card__photo team-card__photo--initials" aria-hidden="true">
+                      {{ initials(member.name) }}
+                    </div>
+                  }
+                  <span class="team-card__ring" aria-hidden="true"></span>
+                </div>
+
+                <div class="team-card__body">
+                  <p class="team-card__name">{{ member.name }}</p>
+                  <a
+                    class="team-card__profile-btn"
+                    [routerLink]="['/profile', member.slug]"
+                  >
+                    View profile
+                  </a>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+    .integrations-section {
+      background: var(--theme-bg);
+      border-top: 1px solid var(--theme-border-subtle);
+    }
+
+    .integrations-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .integrations-eyebrow {
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--theme-fg);
+    }
+
+    .integrations-eyebrow__inner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+    }
+
+    .integrations-eyebrow__mark {
+      width: 0.625rem;
+      height: 0.625rem;
+      background: var(--theme-accent);
+      flex-shrink: 0;
+    }
+
+    .integrations-heading {
+      margin: 0;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--theme-fg);
+    }
+
+    .integrations-lead {
+      margin: 0;
+      text-align: center;
+    }
+
+    .integrations-marquee {
+      --marquee-slide-size: 6.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      width: min(100%, 56rem);
+      margin-inline: auto;
+    }
+
+    @media (min-width: 768px) {
+      .integrations-marquee {
+        gap: 1.125rem;
+      }
+    }
+  

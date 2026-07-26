@@ -1,0 +1,23 @@
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--theme-header-scrolled);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--theme-border-subtle);
+    }
+
+    .site-header__brand {
+      transition: opacity 0.2s ease;
+    }
+
+    .site-header__brand:hover {
+      opacity: 0.85;
+    }
+
+    .site-header__logo {
+      display: block;
+      width: 29px;
+      height: 36px;
+    }
+  

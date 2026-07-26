@@ -1,0 +1,132 @@
+    <div class="stacked-parallax" #stackRoot>
+      <div class="stacked-parallax__track">
+        <!-- Why -->
+        <section id="why" class="stacked-panel stacked-panel--1" data-panel="why">
+          <div class="stacked-panel__inner panel-inner">
+            <div class="stacked-panel__content mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-14">
+              <div class="stacked-panel__layout">
+                <div class="stacked-panel__intro">
+                  <div class="flex items-start gap-6">
+                    <svg lucideListChecks [size]="28" [strokeWidth]="1.5" class="theme-text mt-1 shrink-0" aria-hidden="true"></svg>
+                    <div>
+                      <h2 class="stacked-panel__heading">
+                        <span class="theme-text">Why Modern AI Teams Choose Gbaski</span>
+                        <span class="theme-text-muted block">To Scale With Confidence.</span>
+                      </h2>
+                      <a href="#trial" class="btn-pill btn-pill--primary mt-8 inline-flex" (click)="scrollTo($event, '#trial')">
+                        Schedule a meeting
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="stacked-panel__body">
+                  <div class="reasons-grid grid gap-4 sm:grid-cols-2">
+                    @for (reason of reasons; track reason.title) {
+                      <article class="reason-card">
+                        <div class="reason-card__pattern parallax-layer" [attr.data-pattern]="reason.pattern" [attr.data-speed]="0.2"></div>
+                        <h3 class="theme-text font-heading relative z-[1] mb-2 text-sm font-semibold">{{ reason.title }}</h3>
+                        <p class="theme-text-muted relative z-[1] text-sm leading-relaxed">{{ reason.description }}</p>
+                      </article>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Benefits -->
+        <section id="benefits" class="stacked-panel stacked-panel--2" data-panel="benefits">
+          <div class="stacked-panel__inner panel-inner">
+            <div class="stacked-panel__content mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-14">
+              <div class="stacked-panel__layout">
+                <div class="stacked-panel__intro">
+                  <h2 class="stacked-panel__heading theme-text mb-6">
+                    Move From Fragmented Experimentation To Structured, Production-Ready AI.
+                  </h2>
+                  <a href="#trial" class="btn-pill btn-pill--outline inline-flex" (click)="scrollTo($event, '#trial')">
+                    Talk To Sales
+                  </a>
+                </div>
+                <div class="stacked-panel__body">
+                  <div class="benefits-stack">
+                    @for (block of benefitBlocks; track block.title; let i = $index) {
+                      <article class="benefit-row">
+                        <div
+                          class="benefit-row__visual parallax-layer"
+                          [attr.data-pattern]="block.pattern"
+                          [attr.data-speed]="0.25"
+                        ></div>
+                        <div class="benefit-row__copy">
+                          <h3 class="theme-text font-heading mb-2 text-base font-semibold">{{ block.title }}</h3>
+                          <p class="theme-text-muted mb-4 text-sm leading-relaxed">{{ block.description }}</p>
+                          <ul class="benefit-tags mb-4">
+                            @for (tag of block.tags; track tag.label) {
+                              <li class="benefit-tag">
+                                @switch (tag.icon) {
+                                  @case ('gauge') { <svg lucideGauge [size]="16" [strokeWidth]="1.5" aria-hidden="true"></svg> }
+                                  @case ('trending') { <svg lucideTrendingUp [size]="16" [strokeWidth]="1.5" aria-hidden="true"></svg> }
+                                  @case ('sliders') { <svg lucideSlidersHorizontal [size]="16" [strokeWidth]="1.5" aria-hidden="true"></svg> }
+                                  @case ('search') { <svg lucideSearch [size]="16" [strokeWidth]="1.5" aria-hidden="true"></svg> }
+                                  @case ('trophy') { <svg lucideTrophy [size]="16" [strokeWidth]="1.5" aria-hidden="true"></svg> }
+                                  @case ('activity') { <svg lucideActivity [size]="16" [strokeWidth]="1.5" aria-hidden="true"></svg> }
+                                }
+                                {{ tag.label }}
+                              </li>
+                            }
+                          </ul>
+                          <a href="#trial" class="theme-text text-sm font-medium" (click)="scrollTo($event, '#trial')">
+                            {{ block.cta }} →
+                          </a>
+                        </div>
+                      </article>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Capabilities -->
+        <section id="capabilities" class="stacked-panel stacked-panel--3" data-panel="capabilities">
+          <div class="stacked-panel__inner panel-inner">
+            <div class="stacked-panel__content mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-14">
+              <div class="stacked-panel__layout">
+                <div class="stacked-panel__intro">
+                  <div class="flex items-start gap-4">
+                    <span class="cap-icon theme-text" aria-hidden="true">◎</span>
+                    <div>
+                      <h2 class="stacked-panel__heading">
+                        <span class="theme-text">Gbaski Eliminates Fragmentation</span>
+                        <span class="theme-text-muted block">And Replaces Complexity With Infrastructure.</span>
+                      </h2>
+                      <a href="#faq" class="btn-pill btn-pill--outline mt-8 inline-flex" (click)="scrollTo($event, '#faq')">
+                        Contact Our Team
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="stacked-panel__body">
+                  <div class="cap-visual parallax-layer mb-8" data-pattern="mesh" data-speed="0.18"></div>
+                  <div class="pillars-grid grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                    @for (pillar of pillars; track pillar.title) {
+                      <article class="pillar-card">
+                        @switch (pillar.icon) {
+                          @case ('box') { <svg lucideBox [size]="22" [strokeWidth]="1.5" class="theme-text mb-4" aria-hidden="true"></svg> }
+                          @case ('scale') { <svg lucideScale [size]="22" [strokeWidth]="1.5" class="theme-text mb-4" aria-hidden="true"></svg> }
+                          @case ('user') { <svg lucideUser [size]="22" [strokeWidth]="1.5" class="theme-text mb-4" aria-hidden="true"></svg> }
+                        }
+                        <h3 class="theme-text font-heading mb-2 text-base font-semibold">{{ pillar.title }}</h3>
+                        <p class="theme-text-muted text-sm leading-relaxed">{{ pillar.description }}</p>
+                      </article>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  

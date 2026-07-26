@@ -1,0 +1,54 @@
+    :host {
+      display: block;
+      width: 100%;
+    }
+
+    .marquee-wrap {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+      );
+      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .marquee-viewport {
+      overflow: hidden;
+    }
+
+    .marquee-container {
+      display: flex;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    .marquee-slide {
+      flex: 0 0 var(--marquee-slide-size, 6.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .marquee-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 5rem;
+      height: 5rem;
+      flex-shrink: 0;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .marquee-card img {
+      display: block;
+      width: 2.75rem;
+      height: 2.75rem;
+      object-fit: contain;
+      object-position: center;
+    }
+  

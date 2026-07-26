@@ -1,0 +1,33 @@
+<section
+  id="ai-services-nigeria"
+  class="local-ai-services theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14"
+  aria-labelledby="local-ai-services-heading"
+>
+  <div class="mx-auto max-w-[1400px]">
+    <div class="local-ai-services__card theme-bg-elevated">
+      <p appScrollReveal class="section-eyebrow mb-4">Local delivery</p>
+      <h2
+        id="local-ai-services-heading"
+        appScrollReveal
+        [appScrollRevealDelay]="80"
+        class="section-heading max-w-3xl"
+      >
+        {{ heading }}
+      </h2>
+      <p appScrollReveal [appScrollRevealDelay]="120" class="section-body mt-5 max-w-3xl">
+        {{ intro }}
+      </p>
+      <p appScrollReveal [appScrollRevealDelay]="160" class="section-body mt-4 max-w-3xl">
+        {{ body }}
+      </p>
+      <p
+        appScrollReveal
+        [appScrollRevealDelay]="200"
+        class="local-ai-services__areas theme-text-muted mt-6 text-sm"
+      >
+        <span class="font-medium theme-text-secondary">Areas we serve:</span>
+        {{ serviceAreas }}
+      </p>
+    </div>
+  </div>
+</section>

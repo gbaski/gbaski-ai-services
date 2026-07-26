@@ -1,0 +1,58 @@
+    <section id="faq" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14" aria-labelledby="faq-heading">
+      <div class="mx-auto max-w-[1400px]">
+        <div class="grid gap-16 lg:grid-cols-2">
+          <div class="faq-intro max-w-md">
+            <p appScrollReveal class="section-eyebrow mb-4">FAQs</p>
+            <h2
+              id="faq-heading"
+              appScrollReveal
+              [appScrollRevealDelay]="80"
+              class="section-heading mb-6"
+            >
+              Answered questions
+            </h2>
+            <p
+              appScrollReveal
+              [appScrollRevealDelay]="140"
+              class="section-body mb-8"
+            >
+              Common questions about AI services in Nigeria, implementation, and intelligent automation.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-0">
+            @for (faq of faqs; track faq.question; let i = $index) {
+              <div
+                appScrollReveal
+                [appScrollRevealDelay]="i * 50"
+                class="faq-item theme-border-b"
+              >
+                <button
+                  type="button"
+                  class="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  (click)="toggle(i)"
+                  [attr.aria-expanded]="openIndex() === i"
+                >
+                  <span class="theme-text font-heading text-[15px] font-medium">{{ faq.question }}</span>
+                  <span
+                    class="faq-icon theme-text-secondary flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300"
+                    [class.faq-icon--open]="openIndex() === i"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <div
+                  class="faq-answer overflow-hidden transition-all duration-400"
+                  [class.faq-answer--open]="openIndex() === i"
+                >
+                  <p class="theme-text-muted pb-5 text-sm leading-relaxed">{{ faq.answer }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  

@@ -1,0 +1,20 @@
+<div class="voice-callbar">
+  <img
+    src="/assets/team/ai-consultant-avatar.png"
+    alt="AI consultant avatar"
+    class="voice-callbar__avatar"
+    width="32"
+    height="32"
+    loading="lazy"
+    decoding="async"
+  />
+  <button
+    type="button"
+    class="voice-callbar__button"
+    [disabled]="disabled()"
+    (click)="clicked.emit()"
+  >
+    <span class="material-symbols-rounded voice-callbar__icon" aria-hidden="true">call</span>
+    <span class="voice-callbar__text">{{ label() }}</span>
+  </button>
+</div>

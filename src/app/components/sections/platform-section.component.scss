@@ -1,0 +1,20 @@
+    .feature-card {
+      position: relative;
+    }
+
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--theme-feature-line), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .feature-card:hover::after {
+      opacity: 1;
+    }
+  

@@ -1,0 +1,56 @@
+    <section id="capabilities" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14">
+      <div class="mx-auto max-w-[1400px]">
+        <p appScrollReveal class="section-eyebrow mb-4">Capabilities</p>
+        <h2
+          appScrollReveal
+          [appScrollRevealDelay]="80"
+          class="section-heading mb-16 max-w-2xl"
+        >
+          A Unified Platform Designed To Support Modern Teams From Deployment To Scale.
+        </h2>
+
+        <div class="mb-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          @for (cap of capabilities; track cap.title; let i = $index) {
+            <article
+              appScrollReveal
+              [appScrollRevealDelay]="i * 55"
+              class="capability-item theme-border-l theme-border-l-strong pl-6 transition-all duration-400"
+            >
+              <h3 class="theme-text font-heading mb-2 text-base font-semibold">{{ cap.title }}</h3>
+              <p class="theme-text-muted text-sm leading-relaxed">{{ cap.description }}</p>
+            </article>
+          }
+        </div>
+
+        <div class="theme-border-t pt-24">
+          <h2
+            appScrollReveal
+            class="section-heading mb-6 max-w-2xl"
+          >
+            AI Services Eliminates Fragmentation And Replaces Complexity With Infrastructure.
+          </h2>
+          <a
+            appScrollReveal
+            [appScrollRevealDelay]="80"
+            href="#faq"
+            class="btn-pill btn-pill--outline mb-16 inline-flex"
+            (click)="scrollTo($event, '#faq')"
+          >
+            Contact Our Team
+          </a>
+
+          <div class="grid gap-10 md:grid-cols-3">
+            @for (pillar of pillars; track pillar.title; let i = $index) {
+              <article
+                appScrollReveal
+                [appScrollRevealDelay]="i * 90"
+              >
+                <h3 class="theme-text font-heading mb-2 text-lg font-semibold">{{ pillar.title }}</h3>
+                <p class="theme-text-muted text-sm leading-relaxed">{{ pillar.description }}</p>
+              </article>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  

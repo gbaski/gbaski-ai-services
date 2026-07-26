@@ -1,0 +1,21 @@
+    <div class="marquee-wrap">
+      <div class="marquee-viewport" #viewport>
+        <div class="marquee-container">
+          @for (logo of loopedLogos(); track logo.key) {
+            <div class="marquee-slide">
+              <div class="marquee-card">
+                <img
+                  [src]="logo.logo"
+                  [alt]="logo.isClone ? '' : logo.name"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  

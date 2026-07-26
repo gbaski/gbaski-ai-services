@@ -1,0 +1,29 @@
+    <section id="integrations" class="integrations-section relative overflow-hidden px-6 py-16 md:px-10 md:py-20 lg:px-14 lg:py-24" aria-labelledby="integrations-heading">
+      <div class="relative z-10 mx-auto max-w-[1400px]">
+        <div class="integrations-header mb-10 lg:mb-12">
+          <p appScrollReveal class="integrations-eyebrow mb-4">
+            <span class="integrations-eyebrow__inner">
+              <span class="integrations-eyebrow__mark" aria-hidden="true"></span>
+              Technology &amp; Integrations
+            </span>
+          </p>
+          <h2
+            id="integrations-heading"
+            appScrollReveal
+            [appScrollRevealDelay]="80"
+            class="integrations-heading mx-auto max-w-4xl"
+          >
+            AI systems that integrate seamlessly with your existing business stack
+          </h2>
+          <p appScrollReveal [appScrollRevealDelay]="100" class="integrations-lead theme-text-muted mx-auto mt-4 max-w-2xl text-sm leading-relaxed md:text-base">
+            Integrations with {{ integrationPlatforms }}.
+          </p>
+        </div>
+
+        <div class="integrations-marquee">
+          <app-logo-marquee-row [logos]="rowOne" direction="right" [speed]="0.65" [phase]="0" />
+          <app-logo-marquee-row [logos]="rowTwo" direction="left" [speed]="0.65" [phase]="0.5" />
+        </div>
+      </div>
+    </section>
+  

@@ -1,0 +1,27 @@
+<div class="services-marquee" aria-hidden="true">
+  <div class="services-marquee__glow"></div>
+
+  <div class="services-marquee__rows">
+    @for (row of rows; track row.id) {
+      <div class="services-marquee__row">
+        <div
+          class="services-marquee__track"
+          [class.services-marquee__track--right]="row.direction === 'right'"
+          [style.--marquee-duration]="row.duration + 's'"
+        >
+          @for (item of trackItems(row); track item.key) {
+            <div class="services-marquee__chip">
+              <span class="material-symbols-rounded services-marquee__chip-icon">{{ item.icon }}</span>
+              <span class="services-marquee__chip-label">{{ item.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="services-marquee__fade services-marquee__fade--left"></div>
+  <div class="services-marquee__fade services-marquee__fade--right"></div>
+  <div class="services-marquee__fade services-marquee__fade--top"></div>
+  <div class="services-marquee__fade services-marquee__fade--bottom"></div>
+</div>

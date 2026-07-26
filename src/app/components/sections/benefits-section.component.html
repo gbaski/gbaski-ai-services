@@ -1,0 +1,53 @@
+    <section id="benefits" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14">
+      <div class="mx-auto max-w-[1400px]">
+        <p appScrollReveal class="section-eyebrow mb-4">Benefits</p>
+        <h2
+          appScrollReveal
+          [appScrollRevealDelay]="80"
+          class="section-heading mb-6 max-w-2xl"
+        >
+          Move From Fragmented Experimentation To Structured, Production-Ready AI.
+        </h2>
+        <a
+          appScrollReveal
+          [appScrollRevealDelay]="140"
+          href="#trial"
+          class="btn-pill btn-pill--outline mb-16 inline-flex"
+          (click)="scrollTo($event, '#trial')"
+        >
+          Talk To Sales
+        </a>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          @for (block of blocks; track block.title; let i = $index) {
+            <article
+              appScrollReveal
+              [appScrollRevealDelay]="i * 100"
+              class="benefit-block theme-card rounded-2xl p-8 md:p-10"
+            >
+              <h3 class="theme-text font-heading mb-3 text-xl font-semibold tracking-tight">
+                {{ block.title }}
+              </h3>
+              <p class="theme-text-muted mb-6 text-sm leading-relaxed">
+                {{ block.description }}
+              </p>
+              <div class="mb-8 flex flex-wrap gap-2">
+                @for (tag of block.tags; track tag) {
+                  <span class="theme-tag rounded-full px-3 py-1 text-xs">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+              <a
+                href="#trial"
+                class="theme-text text-sm font-medium underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+                (click)="scrollTo($event, '#trial')"
+              >
+                {{ block.cta }} →
+              </a>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  

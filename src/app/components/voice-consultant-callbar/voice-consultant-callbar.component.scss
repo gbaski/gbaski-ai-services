@@ -1,0 +1,70 @@
+.voice-callbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(22.5rem, 100%);
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0.3rem 0.36rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.voice-callbar__button {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  border: 1px solid #202020;
+  background: #0f0f0f;
+  color: #ffffff;
+  padding: 0.52rem 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.voice-callbar__button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+}
+
+.voice-callbar__button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
+}
+
+.voice-callbar__avatar {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.voice-callbar__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: #151515;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  flex-shrink: 0;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+.voice-callbar__text {
+  display: inline-block;
+  min-width: 0;
+  text-align: left;
+}

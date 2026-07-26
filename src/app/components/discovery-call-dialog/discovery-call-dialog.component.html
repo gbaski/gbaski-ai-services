@@ -1,0 +1,96 @@
+@if (open()) {
+  <div class="discovery-dialog" role="presentation">
+    <button
+      type="button"
+      class="discovery-dialog__backdrop"
+      aria-label="Close discovery call form"
+      (click)="close()"
+    ></button>
+
+    <div
+      class="discovery-dialog__panel theme-bg-elevated"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="discovery-dialog-title"
+    >
+      <button type="button" class="discovery-dialog__close" aria-label="Close" (click)="close()">
+        ×
+      </button>
+
+      @if (submitSuccess()) {
+        <div class="discovery-dialog__success">
+          <p class="discovery-dialog__eyebrow font-mono-label">Request received</p>
+          <h2 id="discovery-dialog-title" class="discovery-dialog__title font-heading">
+            We'll be in touch soon
+          </h2>
+          <p class="discovery-dialog__lead">
+            WhatsApp is open with your details. Send the message to
+            {{ ORGANIZATION.telephone }} to complete your discovery call request.
+          </p>
+          <button type="button" class="discovery-dialog__submit" (click)="close()">Close</button>
+        </div>
+      } @else {
+        <p class="discovery-dialog__eyebrow font-mono-label">Discovery call</p>
+        <h2 id="discovery-dialog-title" class="discovery-dialog__title font-heading">
+          Book a discovery call
+        </h2>
+        <p class="discovery-dialog__lead">
+          @if (memberName()) {
+            Share a few details and we'll connect you with {{ memberName() }} and the team leads to
+            scope your project.
+          } @else {
+            Share a few details and our team will follow up to schedule your discovery call.
+          }
+        </p>
+
+        <form class="discovery-dialog__form" [formGroup]="form" (ngSubmit)="submit()">
+          <label class="discovery-dialog__field">
+            <span class="discovery-dialog__label font-mono-label">Name</span>
+            <input
+              formControlName="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Your full name"
+            />
+            @if (showError('name')) {
+              <span class="discovery-dialog__error">Enter your name.</span>
+            }
+          </label>
+
+          <label class="discovery-dialog__field">
+            <span class="discovery-dialog__label font-mono-label">Email</span>
+            <input
+              formControlName="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@company.com"
+            />
+            @if (showError('email')) {
+              <span class="discovery-dialog__error">Enter a valid email address.</span>
+            }
+          </label>
+
+          <label class="discovery-dialog__field">
+            <span class="discovery-dialog__label font-mono-label">Brief</span>
+            <textarea
+              formControlName="brief"
+              rows="4"
+              placeholder="Tell us what you want to build, automate, or improve."
+            ></textarea>
+            @if (showError('brief')) {
+              <span class="discovery-dialog__error">Add a brief description (at least 10 characters).</span>
+            }
+          </label>
+
+          @if (submitError()) {
+            <p class="discovery-dialog__error discovery-dialog__error--banner">{{ submitError() }}</p>
+          }
+
+          <button type="submit" class="discovery-dialog__submit" [disabled]="submitting()">
+            {{ submitting() ? 'Opening WhatsApp…' : 'Send via WhatsApp' }}
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+}

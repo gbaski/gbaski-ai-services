@@ -1,0 +1,26 @@
+    :host {
+      display: block;
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    :host::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(ellipse at center, transparent 18%, var(--theme-bg) 88%),
+        linear-gradient(to right, var(--theme-bg) 0%, transparent 28%, transparent 72%, var(--theme-bg) 100%);
+      z-index: 1;
+    }
+
+    .shader-bg__canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  

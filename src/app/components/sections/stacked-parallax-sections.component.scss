@@ -1,0 +1,182 @@
+    .stacked-parallax {
+      position: relative;
+    }
+
+    .stacked-panel {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      min-height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      background: var(--theme-bg);
+      border-top: 1px solid var(--theme-border-subtle);
+      box-shadow: 0 -24px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    .stacked-panel--1 { z-index: 1; }
+    .stacked-panel--2 { z-index: 2; }
+    .stacked-panel--3 { z-index: 3; }
+
+    .stacked-panel__inner {
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      padding: 5.5rem 0 2rem;
+      transform-origin: center top;
+      overflow: hidden;
+    }
+
+    .stacked-panel__content {
+      width: 100%;
+    }
+
+    .stacked-panel__layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .stacked-panel__intro {
+      min-width: 0;
+    }
+
+    .stacked-panel__body {
+      min-width: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .stacked-panel__layout {
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .stacked-panel__intro {
+        max-width: 22rem;
+      }
+    }
+
+    .stacked-panel__heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .reason-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid var(--theme-border-subtle);
+      background: var(--theme-bg-elevated);
+      padding: 1.25rem;
+      min-height: 9rem;
+    }
+
+    .reason-card__pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .reason-card__pattern[data-pattern='grid'] {
+      background-image:
+        linear-gradient(var(--theme-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--theme-border) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .reason-card__pattern[data-pattern='radial'] {
+      background-image: radial-gradient(circle at center, var(--theme-border) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .reason-card__pattern[data-pattern='lines'] {
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 8px,
+        var(--theme-border) 8px,
+        var(--theme-border) 9px
+      );
+    }
+
+    .benefits-stack {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .benefit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .benefit-row__visual {
+      min-height: 8rem;
+      border-radius: 1.25rem;
+      border: 1px solid var(--theme-border-subtle);
+      background: var(--theme-bg-elevated);
+    }
+
+    .benefit-row__visual[data-pattern='puzzle'] {
+      background-image:
+        linear-gradient(135deg, var(--theme-border-subtle) 25%, transparent 25%) -10px 0,
+        linear-gradient(225deg, var(--theme-border-subtle) 25%, transparent 25%) -10px 0,
+        linear-gradient(315deg, var(--theme-border-subtle) 25%, transparent 25%),
+        linear-gradient(45deg, var(--theme-border-subtle) 25%, transparent 25%);
+      background-size: 20px 20px;
+      background-color: var(--theme-bg-elevated);
+    }
+
+    .benefit-row__visual[data-pattern='brick'] {
+      background-image:
+        linear-gradient(var(--theme-border-subtle) 1px, transparent 1px),
+        linear-gradient(90deg, var(--theme-border-subtle) 1px, transparent 1px);
+      background-size: 48px 24px;
+      background-color: var(--theme-bg-elevated);
+    }
+
+    .benefit-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .benefit-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: var(--theme-fg-soft);
+    }
+
+    .cap-visual {
+      min-height: 5.5rem;
+      border-radius: 1.25rem;
+      border: 1px solid var(--theme-border-subtle);
+      background-color: var(--theme-bg-elevated);
+    }
+
+    .cap-visual[data-pattern='mesh'] {
+      background-image:
+        radial-gradient(circle at center, var(--theme-muted) 1px, transparent 1px);
+      background-size: 14px 14px;
+      opacity: 0.5;
+    }
+
+    .cap-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+  

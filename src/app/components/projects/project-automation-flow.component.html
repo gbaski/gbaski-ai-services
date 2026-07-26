@@ -1,0 +1,16 @@
+    <div class="automation-flow">
+      @if (loading()) {
+        <p class="automation-flow__status font-mono-label">Loading n8n workflow…</p>
+      } @else if (error()) {
+        <p class="automation-flow__status font-mono-label">Unable to load workflow preview.</p>
+      } @else if (workflowJson()) {
+        <n8n-demo
+          #n8nDemo
+          clicktointeract="true"
+          collapseformobile="true"
+          hidecanvaserrors="true"
+          [attr.theme]="themeService.theme()"
+        ></n8n-demo>
+      }
+    </div>
+  

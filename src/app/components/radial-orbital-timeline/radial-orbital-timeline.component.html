@@ -1,0 +1,121 @@
+    <div
+      class="orbital-root"
+      (click)="onContainerClick($event)"
+    >
+      <div class="orbital-stage">
+        <div
+          class="orbital-orbit"
+          [style.transform]="'translate(' + centerOffset.x + 'px, ' + centerOffset.y + 'px)'"
+        >
+          <div class="orbital-core" aria-label="Your Business">
+            <span class="orbital-core__label">
+              <span class="orbital-core__label-line">Your</span>
+              <span class="orbital-core__label-line">Business</span>
+            </span>
+          </div>
+
+          @for (item of items; track item.id; let index = $index) {
+            @let position = getNodePosition(index, items.length);
+            @let isExpanded = expandedItems()[item.id] === true;
+            @let isRelated = isRelatedToActive(item.id);
+            @let isPulsing = pulseEffect()[item.id] === true;
+
+            <div
+              class="orbital-node"
+              [class.orbital-node--expanded]="isExpanded"
+              [style.transform]="'translate(' + position.x + 'px, ' + position.y + 'px)'"
+              [style.z-index]="isExpanded ? 200 : position.zIndex"
+              [style.opacity]="isExpanded ? 1 : position.opacity"
+              (click)="toggleItem(item.id, $event)"
+            >
+              <div
+                class="orbital-node__glow"
+                [class.orbital-node__glow--pulse]="isPulsing"
+                [style.width.px]="item.energy * 0.5 + 40"
+                [style.height.px]="item.energy * 0.5 + 40"
+                [style.left.px]="-((item.energy * 0.5 + 40 - 40) / 2)"
+                [style.top.px]="-((item.energy * 0.5 + 40 - 40) / 2)"
+              ></div>
+
+              <div
+                class="orbital-node__button"
+                [class.orbital-node__button--expanded]="isExpanded"
+                [class.orbital-node__button--related]="isRelated && !isExpanded"
+              >
+                @switch (item.icon) {
+                  @case ('bot') { <svg lucideBot [size]="16" [strokeWidth]="2.25" aria-hidden="true"></svg> }
+                  @case ('mic') { <svg lucideMic [size]="16" [strokeWidth]="2.25" aria-hidden="true"></svg> }
+                  @case ('message') { <svg lucideMessageCircle [size]="16" [strokeWidth]="2.25" aria-hidden="true"></svg> }
+                  @case ('sparkles') { <svg lucideSparkles [size]="16" [strokeWidth]="2.25" aria-hidden="true"></svg> }
+                  @case ('workflow') { <svg lucideWorkflow [size]="16" [strokeWidth]="2.25" aria-hidden="true"></svg> }
+                  @case ('database') { <svg lucideDatabase [size]="16" [strokeWidth]="2.25" aria-hidden="true"></svg> }
+                }
+              </div>
+
+              <div
+                class="orbital-node__label"
+                [class.orbital-node__label--expanded]="isExpanded"
+              >
+                {{ item.title }}
+              </div>
+
+              @if (isExpanded) {
+                <article class="orbital-card">
+                  <div class="orbital-card__connector" aria-hidden="true"></div>
+                  <header class="orbital-card__header">
+                    <div class="orbital-card__meta">
+                      <span class="orbital-card__badge" [class]="getStatusClass(item.status)">
+                        {{ getStatusLabel(item.status) }}
+                      </span>
+                      <span class="orbital-card__date">{{ item.date }}</span>
+                    </div>
+                    <h3 class="orbital-card__title">{{ item.title }}</h3>
+                  </header>
+                  <div class="orbital-card__body">
+                    <p>{{ item.content }}</p>
+
+                    <div class="orbital-card__energy">
+                      <div class="orbital-card__energy-label">
+                        <svg lucideZap [size]="11" [strokeWidth]="2.25" aria-hidden="true"></svg>
+                        <span>Impact Level</span>
+                      </div>
+                      <span class="orbital-card__energy-value">{{ item.energy }}%</span>
+                      <div class="orbital-card__energy-track">
+                        <div
+                          class="orbital-card__energy-fill"
+                          [style.width.%]="item.energy"
+                        ></div>
+                      </div>
+                    </div>
+
+                    @if (item.relatedIds.length > 0) {
+                      <div class="orbital-card__related">
+                        <div class="orbital-card__related-heading">
+                          <svg lucideLink [size]="11" [strokeWidth]="2.25" aria-hidden="true"></svg>
+                          <span>Connected Services</span>
+                        </div>
+                        <div class="orbital-card__related-list">
+                          @for (relatedId of item.relatedIds; track relatedId) {
+                            @if (getItemById(relatedId); as relatedItem) {
+                              <button
+                                type="button"
+                                class="orbital-card__related-btn"
+                                (click)="toggleItem(relatedId, $event)"
+                              >
+                                {{ relatedItem.title }}
+                                <svg lucideArrowRight [size]="9" [strokeWidth]="2.25" aria-hidden="true"></svg>
+                              </button>
+                            }
+                          }
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </article>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  

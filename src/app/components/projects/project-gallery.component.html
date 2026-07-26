@@ -1,0 +1,27 @@
+    <div #galleryRoot class="project-gallery" [attr.id]="galleryId()">
+      <div class="project-gallery__track">
+        @for (image of images(); track image.src; let i = $index) {
+          <a
+            class="project-gallery__item"
+            [href]="image.src"
+            [attr.data-src]="image.src"
+            [attr.data-sub-html]="'.gallery-caption-' + galleryId() + '-' + i"
+          >
+            <img [src]="image.src" [alt]="image.alt" loading="lazy" decoding="async" />
+            <span class="project-gallery__overlay" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <span [class]="'gallery-caption-' + galleryId() + '-' + i" hidden>{{ image.alt }}</span>
+          </a>
+        }
+      </div>
+    </div>
+  

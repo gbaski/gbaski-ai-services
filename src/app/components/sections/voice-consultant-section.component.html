@@ -1,0 +1,92 @@
+@if (widgetUi.launcherVisible()) {
+  <div class="voice-widget" [class.voice-widget--open]="widgetUi.widgetOpen()">
+    @if (!widgetUi.widgetOpen()) {
+      <app-voice-consultant-callbar
+        [label]="callbarLabel()"
+        [disabled]="callbarDisabled()"
+        (clicked)="startSession()"
+      />
+    } @else {
+      <article class="voice-widget__panel theme-bg-elevated" role="dialog" aria-label="Voice AI consultant">
+        <header class="voice-widget__header">
+          <div>
+            <p class="voice-widget__title">Gbaski AI Consultant</p>
+            <p class="voice-widget__state">{{ stateLabel() }}</p>
+          </div>
+          <button type="button" class="voice-widget__close" (click)="closeWidget()" aria-label="Close chat widget">
+            <span class="material-symbols-rounded voice-widget__close-icon" aria-hidden="true">close</span>
+          </button>
+        </header>
+
+        <div class="voice-widget__feed">
+          @if (voice.error()) {
+            <p class="voice-widget__error">{{ voice.error() }}</p>
+          }
+
+          @if (showLeadForm()) {
+            <article class="voice-widget__lead-card">
+              <form class="voice-widget__lead-form" [formGroup]="leadForm" (ngSubmit)="confirmLead()">
+                <label class="voice-widget__field">
+                  <span class="voice-widget__field-label font-mono-label">Name</span>
+                  <input
+                    formControlName="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Personal or business name"
+                  />
+                </label>
+                <label class="voice-widget__field">
+                  <span class="voice-widget__field-label font-mono-label">Brief</span>
+                  <textarea
+                    formControlName="brief"
+                    rows="3"
+                    placeholder="What do you want to automate or build?"
+                  ></textarea>
+                </label>
+                <button type="submit" class="voice-widget__btn voice-widget__btn--primary">
+                  Confirm details
+                </button>
+              </form>
+            </article>
+          } @else if (showLeadSummary()) {
+            @let lead = leadPreview();
+            <article class="voice-widget__lead-card">
+              @if (lead) {
+                <dl class="voice-widget__lead-list">
+                  @if (leadField('Name', lead.name)) {
+                    <div class="voice-widget__lead-item">
+                      <dt class="font-mono-label">Name</dt>
+                      <dd>{{ lead.name }}</dd>
+                    </div>
+                  }
+                  @if (leadField('Brief', lead.brief)) {
+                    <div class="voice-widget__lead-item">
+                      <dt class="font-mono-label">Brief</dt>
+                      <dd>{{ lead.brief }}</dd>
+                    </div>
+                  }
+                </dl>
+              }
+
+              @if (voice.redirectNotice() && voice.handoffPending()) {
+                <p class="voice-widget__confirmation">{{ voice.redirectNotice() }}</p>
+              } @else if (voice.confirmation()) {
+                <p class="voice-widget__confirmation">{{ voice.confirmation() }}</p>
+              }
+            </article>
+          } @else if (showPlaceholder()) {
+            <p class="voice-widget__status">{{ feedStatus() }}</p>
+          }
+        </div>
+
+        <footer class="voice-widget__actions">
+          <app-voice-consultant-callbar
+            [label]="callbarLabel()"
+            [disabled]="callbarDisabled()"
+            (clicked)="toggleSession()"
+          />
+        </footer>
+      </article>
+    }
+  </div>
+}

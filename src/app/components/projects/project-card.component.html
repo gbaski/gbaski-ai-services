@@ -1,0 +1,65 @@
+    <article class="project-card theme-bg-elevated">
+      <div class="project-card__header">
+        <div>
+          <p class="project-card__client font-mono-label">{{ project().clientName }}</p>
+          <h3 class="project-card__title font-heading">{{ project().title }}</h3>
+        </div>
+        @if (project().automationTool) {
+          <span class="project-card__tool font-mono-label">{{ project().automationTool }}</span>
+        }
+      </div>
+
+      @if (project().images.length) {
+        <div class="project-card__split">
+          <div class="project-card__media">
+            <app-project-gallery [images]="project().images" [galleryId]="project().id" />
+          </div>
+
+          <div class="project-card__details">
+            <div class="project-card__body">
+              @for (paragraph of descriptionParagraphs(); track $index) {
+                <p class="project-card__text">{{ paragraph }}</p>
+              }
+            </div>
+
+            <a
+              class="project-card__link"
+              [href]="project().productionUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit production
+              <svg lucideExternalLink [size]="15" [strokeWidth]="1.75" aria-hidden="true"></svg>
+            </a>
+          </div>
+        </div>
+      } @else {
+        @if (project().automationTool && project().automationFile) {
+          @defer (on viewport) {
+            <app-project-automation-flow
+              [automationFile]="project().automationFile!"
+              [tool]="project().automationTool!"
+            />
+          } @placeholder {
+            <div class="project-card__flow-placeholder" aria-hidden="true"></div>
+          }
+        }
+
+        <div class="project-card__body">
+          @for (paragraph of descriptionParagraphs(); track $index) {
+            <p class="project-card__text">{{ paragraph }}</p>
+          }
+        </div>
+
+        <a
+          class="project-card__link"
+          [href]="project().productionUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit production
+          <svg lucideExternalLink [size]="15" [strokeWidth]="1.75" aria-hidden="true"></svg>
+        </a>
+      }
+    </article>
+  

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sisi Safe AI — Project Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink: #e8c4c4;
+      --pink-deep: #d4a5a5;
+      --cream: #f5f0e8;
+      --cream-dark: #ebe4d8;
+      --navy: #1a2b4a;
+      --navy-light: #2d4268;
+      --accent: #c45c5c;
+      --text: #2c2c2c;
+      --text-muted: #5a5a5a;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(26, 43, 74, 0.08);
+      --shadow-lg: 0 12px 48px rgba(26, 43, 74, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --nav-width: 260px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Layout ── */
+    .layout {
+      display: grid;
+      grid-template-columns: var(--nav-width) 1fr;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar Nav ── */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: var(--pink);
+      padding: 2rem 1.25rem;
+      overflow-y: auto;
+      border-right: 1px solid var(--pink-deep);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--navy);
+    }
+
+    .sidebar-brand .star {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .sidebar-brand span {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .sidebar nav { flex: 1; }
+
+    .sidebar nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      color: var(--navy-light);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background: rgba(255, 255, 255, 0.45);
+      color: var(--navy);
+    }
+
+    .sidebar-footer {
+      font-size: 0.72rem;
+      color: var(--navy-light);
+      opacity: 0.7;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(26, 43, 74, 0.12);
+    }
+
+    /* ── Main Content ── */
+    main {
+      padding: 0 3rem 4rem;
+      max-width: 960px;
+    }
+
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 4rem 0 3rem;
+      border-bottom: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--pink);
+      color: var(--navy);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-concept {
+      font-size: 1.15rem;
+      color: var(--navy-light);
+      max-width: 640px;
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--pink-deep);
+      padding-left: 1.25rem;
+      font-style: italic;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .meta-chip {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 1rem;
+      font-size: 0.82rem;
+      box-shadow: var(--shadow);
+    }
+
+    .meta-chip strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.15rem;
+    }
+
+    .meta-chip a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .meta-chip a:hover { text-decoration: underline; }
+
+    /* ── Typography ── */
+    h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.85rem;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+      line-height: 1.25;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1.75rem 0 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy-light);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      margin: 0 0 1rem 1.25rem;
+      color: var(--text);
+    }
+
+    li { margin-bottom: 0.4rem; }
+    li::marker { color: var(--pink-deep); }
+
+    strong { color: var(--navy); }
+
+    /* ── Cards ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .card h4 {
+      margin-top: 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .card p { font-size: 0.9rem; margin: 0; }
+
+    /* ── Architecture diagram ── */
+    .arch-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .arch-node {
+      background: var(--white);
+      border: 2px solid var(--navy);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: center;
+      min-width: 110px;
+      box-shadow: var(--shadow);
+    }
+
+    .arch-node.highlight {
+      background: var(--pink);
+      border-color: var(--pink-deep);
+    }
+
+    .arch-arrow {
+      color: var(--navy-light);
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+
+    /* ── Workflow steps ── */
+    .steps {
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1rem;
+      align-items: start;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .step h4 { margin: 0 0 0.35rem; color: var(--navy); }
+    .step p { font-size: 0.9rem; margin: 0; }
+
+    /* ── Features grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .feature-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--pink-deep);
+    }
+
+    .feature-item h4 {
+      margin: 0 0 0.5rem;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .feature-item p { font-size: 0.88rem; margin: 0; color: var(--text-muted); }
+
+    /* ── Screenshots ── */
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .screenshot {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .screenshot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .screenshot figcaption {
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .screenshot-full {
+      margin: 1.5rem 0;
+    }
+
+    .screenshot-full .screenshot {
+      max-width: 100%;
+    }
+
+    /* ── Disclaimer box ── */
+    .disclaimer {
+      background: #fff8f0;
+      border: 1px solid #e8d5b0;
+      border-left: 4px solid #d4a04a;
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .disclaimer strong { color: #8a6010; }
+
+    /* ── Innovation banner ── */
+    .innovation-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 2.25rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .innovation-banner h3 {
+      color: var(--pink);
+      margin-top: 0;
+    }
+
+    .innovation-banner p { color: rgba(255,255,255,0.88); }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* ── Voice section ── */
+    .voice-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .voice-step {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+    }
+
+    .voice-step .icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .voice-step strong { display: block; color: var(--navy); margin-bottom: 0.25rem; }
+
+    /* ── Demo video ── */
+    .video-section-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      max-width: 640px;
+    }
+
+    .video-player {
+      position: relative;
+      background: var(--navy);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--cream-dark);
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-player video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #0f1a2e;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      background: rgba(26, 43, 74, 0.55);
+      transition: opacity 0.25s, visibility 0.25s;
+      cursor: pointer;
+    }
+
+    .video-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .video-play-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--pink);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .video-play-btn:hover {
+      transform: scale(1.08);
+      background: var(--white);
+    }
+
+    .video-play-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--navy);
+      margin-left: 4px;
+    }
+
+    .video-overlay-label {
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; }
+
+      .sidebar {
+        position: relative;
+        height: auto;
+        padding: 1.25rem;
+      }
+
+      .sidebar nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      main { padding: 0 1.25rem 3rem; }
+
+      .hero { padding: 2rem 0 1.5rem; }
+    }
+
+    @media print {
+      .sidebar { display: none; }
+      .layout { grid-template-columns: 1fr; }
+      main { max-width: 100%; padding: 1rem; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="sidebar-brand" href="#top">
+        <span class="star">✦</span>
+        <span>Sisi Safe AI</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#users">Target Users</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#demo">Demo Video</a></li>
+          <li><a href="#screenshots">Screenshots</a></li>
+          <li><a href="#voice">Voice Integration</a></li>
+          <li><a href="#safety">Safety &amp; Disclaimer</a></li>
+          <li><a href="#maintenance">Maintenance</a></li>
+          <li><a href="#innovation">Innovation</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">Project Documentation · 2026</div>
+    </aside>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <span class="hero-tag">AI-Powered Fertility Awareness</span>
+        <h1>Sisi Safe AI</h1>
+        <p class="hero-concept">
+          Sisi Safe AI helps women and couples identify safer periods for unprotected sex without contraceptives by providing personalized fertility and cycle guidance.
+        </p>
+        <div class="hero-meta">
+          <div class="meta-chip">
+            <strong>Live App</strong>
+            <a href="https://sisi-safe-zone.lovable.app" target="_blank" rel="noopener">sisi-safe-zone.lovable.app</a>
+          </div>
+          <div class="meta-chip">
+            <strong>Orchestration</strong>
+            n8n Workflow Engine
+          </div>
+          <div class="meta-chip">
+            <strong>Knowledge Base</strong>
+            Supabase + pgvector
+          </div>
+          <div class="meta-chip">
+            <strong>AI Engine</strong>
+            OpenAI + RAG
+          </div>
+        </div>
+      </section>
+
+      <!-- Overview -->
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          <strong>Sisi Safe AI</strong> is an AI-powered fertility and menstrual cycle assistant designed to help women and couples better understand fertility patterns, ovulation windows, and safer periods for unprotected sex without contraceptives.
+        </p>
+        <p>
+          Using personalized cycle information and evidence-based fertility awareness methods, Sisi Safe AI provides easy-to-understand guidance that helps users make informed decisions about family planning, conception timing, and menstrual health.
+        </p>
+        <p>
+          The platform delivers supportive, culturally relevant guidance tailored to African and Nigerian users through a conversational AI experience — embodied by Sisi, the warm and approachable "Big Sister" persona.
+        </p>
+      </section>
+
+      <!-- Problem -->
+      <section id="problem">
+        <h2>Problem Statement</h2>
+        <p>
+          Many women and couples lack easy access to reliable fertility awareness information and personalized menstrual cycle guidance. Existing tools often provide generic calendar predictions without explaining the reasoning behind fertile and less fertile periods.
+        </p>
+        <p>As a result, users struggle to:</p>
+        <ul>
+          <li>Understand their menstrual cycles</li>
+          <li>Identify ovulation and fertile windows</li>
+          <li>Estimate lower-risk periods for unprotected intercourse</li>
+          <li>Track cycle irregularities and fertility patterns</li>
+          <li>Access reproductive guidance in a conversational and relatable manner</li>
+        </ul>
+      </section>
+
+      <!-- Solution -->
+      <section id="solution">
+        <h2>Solution</h2>
+        <p>
+          Sisi Safe AI combines cycle tracking, fertility-awareness principles, and AI-powered guidance to help users:
+        </p>
+        <ul>
+          <li>Understand menstrual cycle phases</li>
+          <li>Predict ovulation windows</li>
+          <li>Identify fertile and less fertile days</li>
+          <li>Receive personalized cycle insights</li>
+          <li>Learn fertility concepts through natural conversations</li>
+          <li>Make informed family-planning decisions</li>
+        </ul>
+        <p>
+          The system provides educational guidance and fertility estimates while encouraging users to consult healthcare professionals when necessary.
+        </p>
+      </section>
+
+      <!-- Target Users -->
+      <section id="users">
+        <h2>Target Users</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Women</h4>
+            <p>Women seeking personalized fertility awareness guidance, cycle tracking support, and menstrual health education.</p>
+          </div>
+          <div class="card">
+            <h4>Couples</h4>
+            <p>Couples who want to plan for pregnancy, understand fertility timing, identify lower-risk periods, and improve reproductive health awareness.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture -->
+      <section id="architecture">
+        <h2>Project Architecture</h2>
+
+        <h3>Frontend</h3>
+        <p>
+          A user-friendly conversational interface built with <strong>Lovable</strong>, allowing users to input menstrual cycle information and receive personalized fertility guidance.
+        </p>
+
+        <h3>Orchestration Layer</h3>
+        <p><strong>n8n</strong> serves as the workflow engine responsible for:</p>
+        <ul>
+          <li>Managing user interactions</li>
+          <li>Processing cycle data</li>
+          <li>Coordinating AI responses</li>
+          <li>Integrating external services</li>
+        </ul>
+
+        <h3>Knowledge Base</h3>
+        <p>
+          A vector database powered by <strong>Supabase</strong> and <strong>pgvector</strong> stores curated fertility-awareness and reproductive health content, serving as the system's trusted knowledge source.
+        </p>
+
+        <h3>AI Engine</h3>
+        <p><strong>OpenAI</strong> models power:</p>
+        <ul>
+          <li>Natural language understanding</li>
+          <li>Personalized fertility guidance</li>
+          <li>Educational explanations</li>
+          <li>Context-aware conversations</li>
+        </ul>
+        <p>
+          A custom system prompt ensures Sisi maintains a supportive, approachable "Big Sister" personality while remaining evidence-based.
+        </p>
+
+        <div class="arch-flow">
+          <div class="arch-node">Lovable Frontend</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node highlight">n8n Workflows</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node">OpenAI Agent</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node">Supabase RAG</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node">ElevenLabs TTS</div>
+        </div>
+      </section>
+
+      <!-- Workflow -->
+      <section id="workflow">
+        <h2>Technical Workflow</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4>User Input</h4>
+              <p>Users provide last menstrual period date, average cycle length, period duration, cycle irregularity information, and fertility-related questions.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Cycle Analysis</h4>
+              <p>The workflow analyzes cycle information to estimate menstrual phase, ovulation window, fertile days, and lower-fertility periods.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Knowledge Retrieval</h4>
+              <p>The n8n agent queries the Supabase vector database to retrieve relevant fertility and reproductive health information.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h4>AI Response Generation</h4>
+              <p>The AI combines user cycle data, fertility calculations, and retrieved medical context to generate personalized, easy-to-understand guidance.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div>
+              <h4>Response Delivery</h4>
+              <p>Users receive fertility window estimates, safe-period guidance, cycle insights, educational explanations, and appropriate medical disclaimers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h4>Personalized Fertility Guidance</h4>
+            <p>Cycle-specific insights based on user-entered menstrual information rather than generic calendar estimates.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Fertile Window Prediction</h4>
+            <p>Helps users understand when ovulation is likely to occur and identifies days with higher fertility probability.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Lower-Risk Period Identification</h4>
+            <p>Highlights days that may present a lower likelihood of pregnancy based on fertility-awareness principles.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Educational Fertility Coaching</h4>
+            <p>Explains ovulation, menstrual phases, fertility timing, and cycle irregularities in simple, conversational language.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Context-Aware AI (RAG)</h4>
+            <p>Uses Retrieval-Augmented Generation to provide responses grounded in curated fertility and reproductive health information.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Cultural Adaptation</h4>
+            <p>Communicates in a friendly, supportive style that resonates with Nigerian and African users while maintaining accuracy.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Scalable Knowledge Base</h4>
+            <p>New fertility resources and educational materials can be added without retraining the AI model.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Voice-Assisted Guidance</h4>
+            <p>ElevenLabs text-to-speech delivers fertility guidance in a warm, conversational voice directly in the app.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Demo Video -->
+      <section id="demo">
+        <h2>Product Demo</h2>
+        <p class="video-section-desc">
+          Watch the Sisi Safe Calculator in action — from entering cycle dates to receiving personalized fertility guidance with voice playback.
+        </p>
+
+        <div class="video-player" id="videoPlayer">
+          <video
+            id="demoVideo"
+            src="sisi-safe-calculator.mp4"
+            preload="metadata"
+            poster="images/hero-calculator.png"
+            playsinline
+          ></video>
+          <div class="video-overlay" id="videoOverlay" aria-hidden="false">
+            <button class="video-play-btn" id="overlayPlayBtn" type="button" aria-label="Play demo video">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <span class="video-overlay-label">Sisi Safe Calculator Walkthrough</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screenshots -->
+      <section id="screenshots">
+        <h2>Application &amp; Workflows</h2>
+
+        <h3>User Interface</h3>
+        <div class="screenshot-gallery">
+          <figure class="screenshot">
+            <img src="images/hero-calculator.png" alt="Sisi Safe AI calculator interface with Big Sister persona" loading="lazy" />
+            <figcaption>Safe Days Calculator — input form with Sisi's welcoming introduction</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/calculating-state.png" alt="Calculator in calculating state" loading="lazy" />
+            <figcaption>Processing cycle data via n8n backend</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/high-risk-results.png" alt="High conception risk results with fertile window dates" loading="lazy" />
+            <figcaption>Results showing conception risk and fertile window dates</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/voice-guidance.png" alt="Sisi Says guidance with audio player" loading="lazy" />
+            <figcaption>"Sisi Says" personalized guidance with voice playback</figcaption>
+          </figure>
+        </div>
+
+        <h3>n8n Orchestration</h3>
+        <div class="screenshot-gallery">
+          <figure class="screenshot">
+            <img src="images/n8n-calculator-workflow.png" alt="Sisi Safe calculator n8n workflow" loading="lazy" />
+            <figcaption>Sisi Safe Calculator — full AI agent workflow with voice output</figcaption>
+          </figure>
+          <figure class="screenshot">
+            <img src="images/n8n-ingestion.png" alt="Sisi Safe Ingestion n8n workflow" loading="lazy" />
+            <figcaption>Sisi Safe Ingestion — knowledge base vector store pipeline</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Voice Integration -->
+      <section id="voice">
+        <h2>Voice Integration</h2>
+        <p>
+          To improve accessibility and create a more engaging user experience, Sisi Safe AI supports voice responses. Users can listen to fertility guidance and cycle explanations delivered in a warm, conversational voice.
+        </p>
+
+        <div class="voice-flow">
+          <div class="voice-step">
+            <div class="icon">🤖</div>
+            <strong>AI Response</strong>
+            Finalized text guidance from the agent
+          </div>
+          <div class="voice-step">
+            <div class="icon">🔊</div>
+            <strong>ElevenLabs TTS</strong>
+            Converts text to natural speech
+          </div>
+          <div class="voice-step">
+            <div class="icon">⚙️</div>
+            <strong>Base64 Encode</strong>
+            Audio buffer packaged for JSON
+          </div>
+          <div class="voice-step">
+            <div class="icon">🎧</div>
+            <strong>HTML5 Player</strong>
+            In-app audio playback for users
+          </div>
+        </div>
+
+        <h4>Frontend Implementation</h4>
+        <p>The Lovable frontend receives:</p>
+        <ul>
+          <li>AI text response</li>
+          <li>Base64 audio payload</li>
+          <li>Audio MIME type</li>
+        </ul>
+        <p>
+          The application automatically renders an HTML5 audio player, allowing users to listen to fertility guidance directly within the conversation interface.
+        </p>
+      </section>
+
+      <!-- Safety -->
+      <section id="safety">
+        <h2>Safety &amp; Medical Disclaimer</h2>
+        <div class="disclaimer">
+          <p>
+            <strong>Important:</strong> Sisi Safe AI provides educational fertility-awareness guidance and cycle-based estimates.
+          </p>
+          <p>
+            Predictions are <strong>not guaranteed methods of contraception</strong> and should not be considered medical advice. Fertility patterns vary among individuals, especially for users with irregular cycles, hormonal conditions, or underlying health concerns.
+          </p>
+          <p>
+            Users are encouraged to consult qualified healthcare professionals for medical diagnosis, treatment, or family-planning decisions.
+          </p>
+        </div>
+      </section>
+
+      <!-- Maintenance -->
+      <section id="maintenance">
+        <h2>Troubleshooting &amp; Maintenance</h2>
+
+        <h3>Error Handling</h3>
+        <p>Structured output validation ensures consistent communication between backend services and frontend applications.</p>
+
+        <h3>Database Optimization</h3>
+        <p>The vector search infrastructure uses indexed similarity searches for efficient retrieval from fertility and reproductive health knowledge collections.</p>
+
+        <h3>Monitoring</h3>
+        <p>Workflow execution, AI responses, and external integrations are monitored through n8n to ensure reliability and performance.</p>
+      </section>
+
+      <!-- Innovation -->
+      <section id="innovation">
+        <h2>Innovation</h2>
+        <div class="innovation-banner">
+          <h3>What Makes Sisi Safe AI Unique</h3>
+          <p>
+            Sisi Safe AI combines fertility awareness education, personalized cycle analysis, AI-powered conversations, voice-assisted guidance, and Retrieval-Augmented Generation (RAG) to create an accessible fertility companion that helps women and couples better understand their reproductive cycles and make informed family-planning decisions.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Fertility Awareness Education</span>
+            <span class="pill">Personalized Cycle Analysis</span>
+            <span class="pill">AI Conversations</span>
+            <span class="pill">Voice Guidance</span>
+            <span class="pill">RAG Knowledge Base</span>
+            <span class="pill">Cultural Adaptation</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('section[id], .hero');
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id || 'top';
+            navLinks.forEach((link) => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+
+    const video = document.getElementById('demoVideo');
+    const overlay = document.getElementById('videoOverlay');
+    const overlayPlayBtn = document.getElementById('overlayPlayBtn');
+
+    function playVideo() {
+      video.play();
+      overlay.classList.add('hidden');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    overlay.addEventListener('click', playVideo);
+    overlayPlayBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playVideo();
+    });
+
+    video.addEventListener('ended', () => {
+      overlay.classList.remove('hidden');
+      overlay.setAttribute('aria-hidden', 'false');
+    });
+
+    video.addEventListener('pause', () => {
+      if (!video.ended) {
+        overlay.classList.remove('hidden');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+    });
+  </script>
+</body>
+</html>

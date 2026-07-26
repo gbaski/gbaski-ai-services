@@ -1,0 +1,39 @@
+    <section id="why" class="theme-section px-6 py-24 md:px-10 md:py-32 lg:px-14">
+      <div class="mx-auto max-w-[1400px]">
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-start">
+          <div>
+            <p appScrollReveal class="section-eyebrow mb-4">Why</p>
+            <h2
+              appScrollReveal
+              [appScrollRevealDelay]="80"
+              class="section-heading mb-8"
+            >
+              Why Modern AI Teams Choose AI Services To Scale With Confidence.
+            </h2>
+            <a
+              appScrollReveal
+              [appScrollRevealDelay]="160"
+              href="#trial"
+              class="btn-pill btn-pill--primary"
+              (click)="scrollTo($event, '#trial')"
+            >
+              Schedule a meeting
+            </a>
+          </div>
+
+          <div class="grid gap-8 sm:grid-cols-2">
+            @for (reason of reasons; track reason.title; let i = $index) {
+              <article
+                appScrollReveal
+                [appScrollRevealDelay]="i * 80"
+                class="reason-card"
+              >
+                <h3 class="theme-text font-heading mb-2 text-base font-semibold">{{ reason.title }}</h3>
+                <p class="theme-text-muted text-sm leading-relaxed">{{ reason.description }}</p>
+              </article>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  

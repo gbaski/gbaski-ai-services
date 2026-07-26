@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Sisi Safe calculator preview">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="640" rx="24" fill="#151515" stroke="#f472b6" stroke-opacity="0.45"/>
+  <text x="600" y="360" fill="#f472b6" font-family="Arial,sans-serif" font-size="42" font-weight="700" text-anchor="middle">Sisi Safe</text>
+  <text x="600" y="420" fill="#9ca3af" font-family="Arial,sans-serif" font-size="22" text-anchor="middle">Safe sex calculator assistant</text>
+</svg>

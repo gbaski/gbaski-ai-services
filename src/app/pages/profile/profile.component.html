@@ -1,0 +1,161 @@
+@if (member) {
+  <app-header />
+  <main class="profile-page theme-bg theme-text" role="main">
+    <section class="profile-hero theme-section" aria-labelledby="profile-name">
+      <div class="profile-hero__inner mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
+        <a routerLink="/" fragment="team" class="profile-back font-mono-label">← Back to team</a>
+
+        <div class="profile-hero__card theme-bg-elevated">
+          <figure class="profile-hero__photo-wrap">
+            @if (member.photo) {
+              <img
+                class="profile-hero__photo"
+                [src]="member.photo"
+                [alt]="photoAlt(member)"
+                [title]="photoAlt(member)"
+                width="320"
+                height="360"
+                fetchpriority="high"
+                decoding="async"
+              />
+            } @else {
+              <div class="profile-hero__photo profile-hero__photo--initials" aria-hidden="true">
+                {{ initials(member.name) }}
+              </div>
+            }
+            <span class="profile-hero__ring" aria-hidden="true"></span>
+          </figure>
+
+          <div class="profile-hero__info">
+            <p class="profile-hero__eyebrow font-mono-label">Team member</p>
+            <h1 id="profile-name" class="profile-hero__name font-heading">{{ member.name }}</h1>
+            @if (member.linkedIn) {
+              <a
+                class="profile-hero__linkedin"
+                [href]="member.linkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="profile-hero__linkedin-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-cta theme-section" aria-labelledby="profile-cta-heading">
+      <div class="profile-cta__inner mx-auto max-w-[1400px] px-6 md:px-10 lg:px-14">
+        <div class="profile-cta__card theme-bg-elevated">
+          <div class="profile-cta__copy">
+            <p class="section-eyebrow mb-4">Work with us</p>
+            <h2 id="profile-cta-heading" class="profile-cta__title font-heading">
+              Ready to see what's possible with AI?
+            </h2>
+            <p class="profile-cta__text">
+              Tell us what you would like to improve. We'll review your brief and schedule a discovery call with
+              <strong class="profile-cta__member-name">{{ member.name }}</strong>
+              and the team leads.
+            </p>
+          </div>
+          <button type="button" class="profile-cta__button" (click)="openDiscoveryDialog()">
+            Book a discovery call
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-projects theme-section" aria-labelledby="profile-projects-heading">
+      <div class="profile-projects__inner mx-auto max-w-[1400px] px-6 pb-24 md:px-10 md:pb-32 lg:px-14">
+        <div class="profile-projects__header">
+          <p class="section-eyebrow mb-4">Our projects</p>
+          <h2 id="profile-projects-heading" class="section-heading max-w-3xl">
+            Work we ship together
+          </h2>
+          <p class="section-body mt-5 max-w-2xl">
+            Each project lists the profile owner, our core leads, and the teammates who shipped that
+            delivery together.
+          </p>
+        </div>
+
+        <div class="profile-projects__grid">
+          @for (project of projects; track project.id) {
+            @let collaborators = projectCollaborators(project.id);
+            <article class="profile-project-card theme-bg-elevated">
+              <div class="profile-project-card__top">
+                <div>
+                  <p class="profile-project-card__client font-mono-label">{{ project.clientName }}</p>
+                  <h3 class="profile-project-card__title font-heading">{{ project.title }}</h3>
+                </div>
+                @if (project.automationTool) {
+                  <span class="profile-project-card__tool font-mono-label">{{ project.automationTool }}</span>
+                }
+              </div>
+
+              <p class="profile-project-card__summary">{{ projectSummary(project) }}</p>
+
+              <div class="profile-project-card__collaborators">
+                <p class="profile-project-card__collab-label font-mono-label">Collaborators</p>
+                <div class="collaborators-stack" role="list" aria-label="Project collaborators">
+                  @for (collaborator of collaborators; track collaborator.slug; let i = $index) {
+                    <a
+                      role="listitem"
+                      class="collaborators-stack__avatar"
+                      [class.collaborators-stack__avatar--current]="isCurrentMember(collaborator.slug)"
+                      [routerLink]="['/profile', collaborator.slug]"
+                      [attr.aria-label]="'View ' + collaborator.name + ' profile'"
+                      [title]="collaborator.name"
+                      [style.z-index]="collaborators.length - i"
+                    >
+                      @if (collaborator.photo) {
+                        <img
+                          [src]="collaborator.photo"
+                          [alt]="collaboratorPhotoAlt(collaborator)"
+                          [title]="collaboratorPhotoAlt(collaborator)"
+                          width="40"
+                          height="40"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      } @else {
+                        <span class="collaborators-stack__initials" aria-hidden="true">
+                          {{ initials(collaborator.name) }}
+                        </span>
+                      }
+                    </a>
+                  }
+                </div>
+                <p class="profile-project-card__collab-caption">
+                  {{ collaborators.length }} teammates · one delivery squad
+                </p>
+              </div>
+
+              <a
+                class="profile-project-card__link"
+                [href]="project.productionUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit production
+                <svg lucideExternalLink [size]="15" [strokeWidth]="1.75" aria-hidden="true"></svg>
+              </a>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <app-discovery-call-dialog
+    [open]="discoveryDialogOpen()"
+    [memberName]="member.name"
+    [memberSlug]="member.slug"
+    (closed)="closeDiscoveryDialog()"
+  />
+  <app-footer />
+}

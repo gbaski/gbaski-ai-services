@@ -1,0 +1,35 @@
+    .automation-flow {
+      width: 100%;
+    }
+
+    .automation-flow n8n-demo {
+      display: block;
+      width: 100%;
+      min-height: 28rem;
+      --n8n-workflow-min-height: 28rem;
+      border: 1px solid var(--theme-border-subtle);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--theme-bg);
+    }
+
+    @media (min-width: 768px) {
+      .automation-flow n8n-demo {
+        min-height: 36rem;
+        --n8n-workflow-min-height: 36rem;
+      }
+    }
+
+    .automation-flow__status {
+      margin: 0;
+      padding: 2rem 1rem;
+      border: 1px dashed var(--theme-border);
+      border-radius: 1rem;
+      text-align: center;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--theme-muted);
+    }
+  
