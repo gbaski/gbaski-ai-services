@@ -129,7 +129,16 @@
                   <span class="team-card__badge">{{ member.credential }}</span>
                 }
                 <p class="team-card__name">{{ member.name }}</p>
-                <p class="team-card__title">{{ member.focus }}</p>
+                @if (member.jobTitle) {
+                  <p class="team-card__title">{{ member.jobTitle }}</p>
+                }
+                @if (member.focusAreas.length) {
+                  <ul class="team-card__focus" aria-label="Focus areas">
+                    @for (area of member.focusAreas; track area) {
+                      <li class="team-card__focus-tag">{{ area }}</li>
+                    }
+                  </ul>
+                }
               </div>
             </div>
           </article>

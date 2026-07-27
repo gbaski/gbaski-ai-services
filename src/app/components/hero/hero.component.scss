@@ -189,8 +189,42 @@
 }
 
 .team-card__title {
-  margin: 0.3rem 0 0;
+  margin: 0.25rem 0 0;
   font-size: 0.8125rem;
-  line-height: 1.45;
+  font-weight: 500;
+  line-height: 1.35;
   color: var(--theme-muted);
+}
+
+.team-card__focus {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  max-width: 100%;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.team-card__focus::-webkit-scrollbar {
+  display: none;
+}
+
+.team-card__focus-tag {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--theme-muted);
+  background: var(--theme-hover-bg);
+  border: 1px solid var(--theme-border);
 }

@@ -126,19 +126,19 @@ export const TEAM_MEMBERS: TeamMember[] = [
 
 export const HERO_TEAM_LEAD_PRESENTATION: Record<
   string,
-  { anchorId: string; accent: 'aws' | 'loubby'; credential?: string; focus: string }
+  { anchorId: string; accent: 'aws' | 'loubby'; credential?: string; focusAreas: readonly string[] }
 > = {
   'mariam-erhabor': {
     anchorId: 'team-lead-mariam',
     accent: 'loubby',
     credential: 'Loubby AI Trained',
-    focus: 'AI Automation Engineer | n8n | Workflow Automation | Conversational AI',
+    focusAreas: ['n8n', 'Workflow Automation', 'Conversational AI'],
   },
   'wuyi-adepoju': {
     anchorId: 'team-lead-wuyi',
     accent: 'aws',
     credential: 'AWS AI Certified',
-    focus: 'AI Solutions Engineer | Golang Backend Engineer | AI Automation | n8n | API Integration',
+    focusAreas: ['Golang Backend', 'n8n', 'API Integration'],
   },
 };
 
@@ -146,7 +146,7 @@ export type HeroTeamLead = TeamMember & {
   anchorId: string;
   accent: 'aws' | 'loubby';
   credential?: string;
-  focus: string;
+  focusAreas: readonly string[];
 };
 
 export function getHeroTeamLeads(): HeroTeamLead[] {
