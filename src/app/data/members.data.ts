@@ -132,7 +132,7 @@ export const HERO_TEAM_LEAD_PRESENTATION: Record<
     anchorId: 'team-lead-mariam',
     accent: 'loubby',
     credential: 'Loubby AI Trained',
-    focusAreas: ['n8n', 'Workflow Automation', 'Conversational AI'],
+    focusAreas: ['n8n', 'Zapier', 'Make', 'GoHighLevel'],
   },
   'wuyi-adepoju': {
     anchorId: 'team-lead-wuyi',
